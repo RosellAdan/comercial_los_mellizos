@@ -11,8 +11,10 @@ class tipopersonal extends Model
 
     protected $table = 'tipopersonal';
 
+    protected $primaryKey='idp';
     public function personal(){
 
         return $this->hasMany(personal::class,'idp','idp');
     }
+
 }

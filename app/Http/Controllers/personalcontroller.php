@@ -2,37 +2,35 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\tipopersonal;
 use Illuminate\Http\Request;
 
-class tipopersonalcontroller extends Controller
+class personalcontroller extends Controller
 {
+    public function index(){
 
-   public function index(){
+        $personas = personal::all(); //mostrar tabla (from)
 
-       $tipopersonas = tipopersonal::all(); //mostrar tabla (from)
+        return view('personal.index',compact('personas'));
+    }
+    public function create(){
 
-       return view('tipopersonal.index',compact('tipopersonas'));
-   }
-   public function create(){
-
-       return view('tipopersonal.create');
-   }
+        return view('personal.create');
+    }
     public function store(request $request)
     {
-        $tipopersonal = new tipopersonal();
-        $tipopersonal->idp = $request->input('idp');
-        $tipopersonal->descripcion = $request->input('descripcion');
+        $personal = new personal();
+        $personal->idp = $request->input('idp');
+        $personal->descripcion = $request->input('descripcion');
 
-        $tipopersonal->save();
+        $personal->save();
 
 
-        return redirect()->route('tipopersonal.index');
+        return redirect()->route('personal.index');
     }
     public function edit($idp){
 
-       $tipopersonal = tipopersonal::findOrFail($idp);
-       return view('tipopersonal.edit',compact('tipopersonal'));
+        $personal = tipopersonal::findOrFail($idp);
+        return view('personal.edit',compact('personal'));
     }
     public function update(Request $request,$idp)
     {

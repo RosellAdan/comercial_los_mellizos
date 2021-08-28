@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\tipopersonalcontroller;
+use App\Models\tipopersonal;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,26 +16,36 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-/*Route::get('/',function (){
- //return "hola mundo";
-    echo "<a href='contactos'>Contactos</a>";
-    echo "<a href='contactos'>Contactos</a>";
-    echo "<a href='contactos'>Contactos</a>";
+
+
+Route::get('/Home',[\App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::group(['prefix'=>'tipopersonal'], function (){
+    Route::get('/', [tipopersonalcontroller::class,'index'])->name('tipopersonal.index');
+    Route::get('/create', [tipopersonalcontroller::class,'create'])->name('tipopersonal.create');
+    Route::post('/', [tipopersonalcontroller::class,'store'])->name('tipopersonal.store');
+   // Route::get('/{idp}', [tipopersonalcontroller::class,'show'])->name('tipopersonal.show');
+    Route::put('/{idp}', [tipopersonalcontroller::class,'update'])->name('tipopersonal.update');
+    Route::get('/{idp}/edit', [tipopersonalcontroller::class,'edit'])->name('tipopersonal.edit');
+    Route::get('/{idp}/destroy', [tipopersonalcontroller::class,'destroy'])->name('tipopersonal.destroy');
+
+
 });
-*/
-Route::get('/',function (){
-    return view('home');
-})->name('home');
+Route::group(['prefix'=>'personal'], function (){
+    Route::get('/', [personalcontroller::class,'index'])->name('personal.index');
+    Route::get('/create', [personalcontroller::class,'create'])->name('personal.create');
+    Route::post('/', [personalcontroller::class,'store'])->name('personal.store');
+    // Route::get('/{idp}', [personalcontroller::class,'show'])->name('personal.show');
+    Route::put('/{idp}', [personalcontroller::class,'update'])->name('personal.update');
+    Route::get('/{idp}/edit', [personalcontroller::class,'edit'])->name('personal.edit');
+    Route::get('/{idp}/destroy', [personalcontroller::class,'destroy'])->name('personal.destroy');
 
-Route::get('saludos/{nombre?}',function ($nombre = "Invitado"){
-    $apellido = "<script> alert('hola te conosco')</script>";
-    $mensaje= [
-       /* "HOLA COMO ESTAS",
 
-        "TODO BIEN...??" */
-    ];
-    return view('saludos',['nombre'=>$nombre,'apellido'=>$apellido,'mensaje'=>$mensaje]);
-})->name('saludos')->where('nombre',"[A-Za-z]+");
-/*
-Route::get('tipopersonal/create','tipopersonalcontroller@create')->name('tipopersonal.create');
-*/
+});
+Route::get('/prueva',function (){
+    $tipopersonal = new tipopersonal();
+    $tipopersonal->idp='12336';
+    $tipopersonal->descripcion='hola como estas';
+    $tipopersonal->save();
+
+    return $tipopersonal;
+} );
