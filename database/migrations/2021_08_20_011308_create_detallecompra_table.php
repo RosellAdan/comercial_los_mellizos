@@ -16,12 +16,12 @@ class CreateDetallecompraTable extends Migration
         Schema::create('detallecompra', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger("codicom");
-            $table->unsignedBigInteger("codipro");
+            $table->unsignedBigInteger("codiprod");
             $table->integer("preciocompra");
-            $table->id("cantidadcompra");
+            $table->integer("cantidadcompra");
             $table->string("descripcion");
             $table->foreign("codicom")->references("codicom")->on("compra");
-            $table->foreign("codipro")->references("codiprod")->on("producto");
+            $table->foreign("codiprod")->references("codiprod")->on("producto");
             $table->timestamps();
 
 

@@ -12,7 +12,7 @@
     <header>
         <nav>
             <a href="<?php echo Route('home') ?>">Inicio</a>
-            <a href="<?php echo Route('saludos') ?>">Saludos</a>
+            <a href=" {{Route('saludos',['Mauricio'])}} ">Saludos</a>
 
         </nav>
     </header>

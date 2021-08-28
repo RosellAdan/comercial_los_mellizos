@@ -9,6 +9,26 @@
 </head>
 <body>
   <h1>Saludos <?php echo $nombre ?> </h1>
+  <h1>Saludos  {{$nombre}} </h1>
+  <h1>Saludos  {!! $apellido !!} </h1>
+
+ <u>
+     @forelse($mensaje as $mensaje)
+         <p>{{$mensaje}}</p>
+     @empty
+             <p>No tienes ningun mensaje</p>
+     @endforelse
+ </u>
+
+ @if(count($mensaje) === 0)
+     <h1>No tienes mensajes</h1>
+         @else
+             <h1>No tienes mensajes</h1>
+     @endif
+
+
+
+
 
 </body>
 </html>

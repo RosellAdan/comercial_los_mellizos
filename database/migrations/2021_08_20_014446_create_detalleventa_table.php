@@ -15,12 +15,12 @@ class CreateDetalleventaTable extends Migration
     {
         Schema::create('detalleventa', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger("codipro");
+            $table->unsignedBigInteger("codiprod");
             $table->unsignedBigInteger("codiv");
             $table->integer("cantidaventa");
-            $table->id("precioventa");
+            $table->integer("precioventa");
             $table->string("descripcionventa");
-            $table->foreign("codipro")->references("codipro")->on("producto");
+            $table->foreign("codiprod")->references("codiprod")->on("producto");
             $table->foreign("codiv")->references("codiv")->on("venta");
             $table->timestamps();
 

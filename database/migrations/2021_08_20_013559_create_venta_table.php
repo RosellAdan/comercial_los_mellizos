@@ -17,7 +17,6 @@ class CreateVentaTable extends Migration
             $table->id("codiv");
             $table->string("fechaventa");
             $table->integer("precioventa");
-            $table->string("descripcionventa");
             $table->unsignedBigInteger("coditv");
             $table->foreign("coditv")->references("coditv")->on("tipoventa");
             $table->timestamps();
