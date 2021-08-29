@@ -10,7 +10,7 @@ class proveedor extends Model
     use HasFactory;
 
     protected $table ='proveedor';
-
+    protected $primaryKey='codip';
     public function compra(){
         return $this->hasMany(compra::class, 'codip', 'codip');
     }

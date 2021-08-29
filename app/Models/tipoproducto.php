@@ -10,6 +10,7 @@ class tipoproducto extends Model
     use HasFactory;
 
     protected $table ='tipoproducto';
+    protected $primaryKey='coditp';
 
     public function producto(){
 

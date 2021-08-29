@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\personalcontroller;
+use App\Http\Controllers\proveedorcontroller;
 use App\Http\Controllers\tipopersonalcontroller;
+use App\Http\Controllers\tipoproductocontroller;
 use App\Models\personal;
 use App\Models\tipopersonal;
 use Illuminate\Support\Facades\Route;
@@ -49,6 +51,18 @@ Route::group(['prefix'=>'personal'], function (){
         Route::put('/{codip}', [proveedorcontroller::class,'update'])->name('proveedor.update');
         Route::get('/{codip}/edit', [proveedorcontroller::class,'edit'])->name('proveedor.edit');
         Route::get('/{codip}/destroy', [proveedorcontroller::class,'destroy'])->name('proveedor.destroy');
+});
+
+
+Route::group(['prefix'=>'tipoproducto'], function (){
+    Route::get('/', [tipoproductocontroller::class,'index'])->name('tipoproducto.index');
+    Route::get('/create', [tipoproductocontroller::class,'create'])->name('tipoproducto.create');
+    Route::post('/', [tipoproductocontroller::class,'store'])->name('tipoproducto.store');
+    // Route::get('/{coditp}', [tipopersonalcontroller::class,'show'])->name('tipoproducto.show');
+    Route::put('/{coditp}', [tipoproductocontroller::class,'update'])->name('tipoproducto.update');
+    Route::get('/{coditp}/edit', [tipoproductocontroller::class,'edit'])->name('tipoproducto.edit');
+    Route::get('/{coditp}/destroy', [tipoproductocontroller::class,'destroy'])->name('tipoproducto.destroy');
+
 });
 Route::get('/prueba',function (){
     $tipopersonal = new tipopersonal();
