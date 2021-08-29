@@ -40,8 +40,15 @@ Route::group(['prefix'=>'personal'], function (){
     Route::put('/{ci}', [personalcontroller::class,'update'])->name('personal.update');
     Route::get('/{ci}/edit', [personalcontroller::class,'edit'])->name('personal.edit');
     Route::get('/{ci}/destroy', [personalcontroller::class,'destroy'])->name('personal.destroy');
-
-
+});
+    Route::group(['prefix'=>'proveedor'], function (){
+        Route::get('/', [proveedorcontroller::class,'index'])->name('proveedor.index');
+        Route::get('/create', [proveedorcontroller::class,'create'])->name('proveedor.create');
+        Route::post('/', [proveedorcontroller::class,'store'])->name('proveedor.store');
+        // Route::get('/{codip}', [proveedorcontroller::class,'show'])->name('proveedor.show');
+        Route::put('/{codip}', [proveedorcontroller::class,'update'])->name('proveedor.update');
+        Route::get('/{codip}/edit', [proveedorcontroller::class,'edit'])->name('proveedor.edit');
+        Route::get('/{codip}/destroy', [proveedorcontroller::class,'destroy'])->name('proveedor.destroy');
 });
 Route::get('/prueba',function (){
     $tipopersonal = new tipopersonal();
