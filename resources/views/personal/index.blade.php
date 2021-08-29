@@ -17,22 +17,24 @@
                         <th>direccion</th>
                         <th>celular</th>
                         <th>sexo</th>
+                        <th>idp</th>
                         <th>Acciones</th>
                     </tr>
                     </thead>
                     <tbody>
-                        @foreach($personas as $persona)
+                        @foreach($personas as $personal)
                             <tr>
-                                <td>{{ $persona->ci }}</td>
-                                <td>{{ $persona->nombre }}</td>
-                                <td>{{ $persona->apellido }}</td>
-                                <td>{{ $persona->direccion }}</td>
-                                <td>{{ $persona->celular }}</td>
-                                <td>{{ $persona->sexo }}</td>
+                                <td>{{ $personal->ci }}</td>
+                                <td>{{ $personal->nombre }}</td>
+                                <td>{{ $personal->apellido }}</td>
+                                <td>{{ $personal->direccion }}</td>
+                                <td>{{ $personal->celular }}</td>
+                                <td>{{ $personal->sexo }}</td>
+                                <td>{{ $personal->tipopersonal->descripcion }}</td>
                                 <td>
-                                    <a href="{{ route('personal.show', [$persona->ci]) }}"><span class="new badge teal" data-badge-caption="ver"></span></a>
-                                    <a href="{{ route('personal.edit', [$persona->ci]) }}"><span class="new badge amber accent-4" data-badge-caption="editar"></span></a>
-                                    <a href="{{ route('personal.destroy', [$persona->ci]) }}"><span class="new badge red" data-badge-caption="eliminar"></span></a>
+                               {{--    <a href="{{ route('personal.show', [$personal->ci]) }}"><span class="new badge teal" data-badge-caption="ver"></span></a>--}}
+                                    <a href="{{ route('personal.edit', [$personal->ci]) }}"><span class="new badge amber accent-4" data-badge-caption="editar"></span></a>
+                                    <a href="{{ route('personal.destroy', [$personal->ci]) }}"><span class="new badge red" data-badge-caption="eliminar"></span></a>
 
                                 </td>
                             </tr>

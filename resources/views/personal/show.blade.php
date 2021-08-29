@@ -17,39 +17,39 @@
                             <p class="primary-text-color secondary-text-style">Nombre Completo:</p>
                         </div>
                         <div class="col s8 offset-s2 m7">
-                            <p class="secondary-text-color">{{$persona->nombre}}</p>
+                            <p class="secondary-text-color">{{$personal->nombre}}</p>
                         </div>
 
                         <div class="col s12 m5">
                             <p class="primary-text-color secondary-text-style">Carnet identidad:</p>
                         </div>
                         <div class="col s8 offset-s2 m7">
-                            <p class="secondary-text-color">{{$persona->carnet_identidad}}</p>
+                            <p class="secondary-text-color">{{$personal->carnet_identidad}}</p>
                         </div>
 
                         <div class="col s12 m5">
                             <p class="primary-text-color secondary-text-style">Teléfono:</p>
                         </div>
                         <div class="col s8 offset-s2 m7">
-                            <p class="secondary-text-color">{{$persona->telefono}}</p>
+                            <p class="secondary-text-color">{{$personal->telefono}}</p>
                         </div>
 
                         <div class="col s12 m5">
                             <p class="primary-text-color secondary-text-style">Drirección:</p>
                         </div>
                         <div class="col s8 offset-s2 m7">
-                            <p class="secondary-text-color">{{$persona->direccion}}</p>
+                            <p class="secondary-text-color">{{$personal->direccion}}</p>
                         </div>
 
                         <div class="col s12 m5">
                             <p class="primary-text-color secondary-text-style">Correo:</p>
                         </div>
                         <div class="col s8 offset-s2 m7">
-                            <p class="secondary-text-color">{{$persona->correo}}</p>
+                            <p class="secondary-text-color">{{$personal->correo}}</p>
                         </div>
                     </div>
                     <div class="card-action right-align">
-                        <a href="{{ route('clientes.index') }}" class="waves-effect waves-brown btn-flat red-text bold">Atras</a>
+                        <a href="{{ route('personal.index') }}" class="waves-effect waves-brown btn-flat red-text bold">Atras</a>
                     </div>
                 </div>
             </div>

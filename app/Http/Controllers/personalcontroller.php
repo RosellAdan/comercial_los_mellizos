@@ -1,27 +1,35 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\personal;
+use App\Models\tipopersonal;
 use Illuminate\Http\Request;
+
 
 class personalcontroller extends Controller
 {
+   // public static $TIPO_PER = 2;
     public function index(){
+        $personas = Personal::all();
+        $personas->load(['tipopersonal']);
 
-        $personas = personal::all(); //mostrar tabla (from)
-
-        return view('personal.index',compact('personas'));
+       return view('personal.index',compact('personas'));
     }
     public function create(){
-
-        return view('personal.create');
+        $tipopersonales= tipopersonal::all();
+        return view('personal.create',compact('tipopersonales'));
     }
     public function store(request $request)
     {
+       // dd($request);
         $personal = new personal();
+        $personal->ci = $request->input('ci');
+        $personal->nombre = $request->input('nombre');
+        $personal->apellido = $request->input('apellido');
+        $personal->direccion = $request->input('direccion');
+        $personal->celular = $request->input('celular');
+        $personal->sexo = $request->input('sexo');
         $personal->idp = $request->input('idp');
-        $personal->descripcion = $request->input('descripcion');
-
         $personal->save();
 
 
@@ -29,29 +37,36 @@ class personalcontroller extends Controller
     }
     public function edit($idp){
 
-        $personal = tipopersonal::findOrFail($idp);
-        return view('personal.edit',compact('personal'));
+        $personal = personal::findOrFail($idp);
+        $tipopersonales= tipopersonal::all();
+
+        return view('personal.edit',compact('personal','tipopersonales'));
     }
     public function update(Request $request,$idp)
     {
-        $tipopersonal = tipopersonal::findOrFail($idp);
-        $tipopersonal->idp = $request->input('idp');
-        $tipopersonal->descripcion = $request->input('descripcion');
+        $personal = personal::findOrFail($idp);
+        $personal->ci = $request->input('ci');
+        $personal->nombre = $request->input('nombre');
+        $personal->apellido = $request->input('apellido');
+        $personal->direccion = $request->input('direccion');
+        $personal->celular = $request->input('celular');
+        $personal->sexo = $request->input('sexo');
+        $personal->idp = $request->input('idp');
 
-        $tipopersonal->save();
+        $personal->save();
 
 
-        return redirect()->route('tipopersonal.index');
+        return redirect()->route('personal.index');
     }
     public function show($idp)
     {
-        $tipopersonal = tipopersonal::findOrFail($idp);
-        return view('tipopersonal.show', ['tipopersonal'=>$tipopersonal]);
+        $personal = personal::findOrFail($idp);
+        return view('personal.show', ['personal'=>$personal]);
     }
     public function destroy($idp)
     {
-        $tipopersonal = tipopersonal::findOrFail($idp);
-        $tipopersonal->delete();
-        return redirect()->route('tipopersonal.index');
+        $personal = personal::findOrFail($idp);
+        $personal->delete();
+        return redirect()->route('personal.index');
     }
 }

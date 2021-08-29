@@ -10,7 +10,7 @@ class personal extends Model
     use HasFactory;
 
    protected $table= 'personal';
-
+    protected $primaryKey='ci';
     public function tipopersonal(){
 
         return $this->belongsTo(tipopersonal::class ,'idp', 'idp');

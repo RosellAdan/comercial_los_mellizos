@@ -2,7 +2,7 @@
 @section('content')
 
     <div class="row">
-        <form method="POST" action="{{ route('clientes.update', [$persona->id]) }}">
+        <form method="POST" action="{{ route('personal.update', [$personal->ci]) }}">
             @csrf
             @method('PUT')
 
@@ -19,43 +19,67 @@
 
                         <div class="row">
                             <div class="input-field col s12 m4">
-                                <input id="nombre" type="text" class="validate" name="nombre" value="{{$persona->nombre}}">
-                                <label for="nombre">Nombre Completo:</label>
-                                @error('nombre')
-                                    <span class="help-block red-text"> {{ $message }} </span>
+                                <input id="ci" type="number" class="validate" name="ci" value="{{$personal->ci}}">
+                                <label for="ci">CEDULA DE IDENTIDAD :</label>
+                                @error('ci')
+                                <span class="help-block red-text"> {{ $message }} </span>
                                 @enderror
                             </div>
                             <div class="input-field col s12 m4">
-                                <input id="telefono" type="number" class="validate" name="telefono" value="{{$persona->telefono}}">
-                                <label for="telefono">telefono:</label>
-                                @error('telefono')
+                                <input id="nombre" type="text" class="validate" name="nombre" value="{{$personal->nombre}}">
+                                <label for="nombre">NOMBRE:</label>
+                                @error('nombre')
                                 <span class="help-block red-text"> {{ $message }} </span>
                                 @enderror
                             </div>
 
                             <div class="input-field col s12 m4">
-                                <input id="carnet_identidad" type="text" class="validate" name="carnet_identidad" value="{{$persona->carnet_identidad}}">
-                                <label for="carnet_identidad">Carnet Identidad:</label>
-                                @error('carnet_identidad')
+                                <input id="apellido" type="text" class="validate" name="apellido" value="{{$personal->apellido}}">
+                                <label for="apellido">APELLIDO:</label>
+                                @error('apellido')
                                 <span class="help-block red-text"> {{ $message }} </span>
                                 @enderror
                             </div>
 
                             <div class="input-field col s12">
-                                <textarea id="direccion" class="validate materialize-textarea" name="direccion">{{$persona->direccion}}</textarea>
-                                <label for="direccion">Dirección:</label>
+                                <textarea id="direccion" class="validate materialize-textarea" name="direccion">{{$personal->direccion}}</textarea>
+                                <label for="direccion">DIRECCION:</label>
                                 @error('direccion')
                                 <span class="help-block red-text"> {{ $message }} </span>
                                 @enderror
                             </div>
 
                             <div class="input-field col s12 m12">
-                                <input id="correo" type="email" class="validate" name="correo" value="{{$persona->correo}}">
-                                <label for="correo">Correo:</label>
-                                @error('correo')
+                                <input id="celular" type="number" class="validate" name="celular" value="{{$personal->celular}}">
+                                <label for="celular">CELULAR:</label>
+                                @error('celular')
                                 <span class="help-block red-text"> {{ $message }} </span>
                                 @enderror
                             </div>
+                            <div class="input-field col s12 m12">
+                                <select name="sexo" id="sexo">
+                                    <option {{$personal->sexo==='M'?'selected':''}} value="M">MASCULINO</option>
+                                    <option {{$personal->sexo==='F'?'selected':''}} value="F">FEMENINO</option>
+                                </select>
+                                <label for="sexo">SEXO:</label>
+
+                            </div>
+                            <div class="input-field col s12 m12">
+                                <select name="idp" id="idp">
+                                    <option value="">ELIJA UNA OPCION</option>
+                                    @foreach($tipopersonales as $tipopersonal)
+                                        <option {{$tipopersonal->idp === $personal->idp?'selected':''}}
+                                            value="{{ $tipopersonal->idp }}">{{ $tipopersonal->descripcion }}</option>
+
+                                    @endforeach
+                                </select>
+
+                                <label for="idp">SELECCIONE UN TIPO PERSONAL:</label>
+                                @error('idp')
+                                <span class="help-block red-text"> {{ $message }} </span>
+                                @enderror
+                            </div>
+
                         </div>
                         <div class="card-action right-align">
                             <button type="submit" class="waves-effect waves-brown btn-flat red-text bold" onclick="showProgress()">Guardar</button>

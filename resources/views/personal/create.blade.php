@@ -2,7 +2,7 @@
 @section('content')
 
     <div class="row">
-        <form method="POST" action="{{ route('clientes.store') }}">
+        <form method="POST" action="{{ route('personal.store') }}">
             @csrf
 
             <div class="col s12 m10 offset-m1 l6 offset-l3 xl6 offset-xl3">
@@ -19,7 +19,7 @@
                         <div class="row">
                             <div class="input-field col s12 m4">
                                 <input id="ci" type="number" class="validate" name="ci" value="{{old('ci')}}">
-                                <label for="nombre">CEDULA DE IDENTIDAD :</label>
+                                <label for="ci">CEDULA DE IDENTIDAD :</label>
                                 @error('ci')
                                     <span class="help-block red-text"> {{ $message }} </span>
                                 @enderror
@@ -55,6 +55,29 @@
                                 <span class="help-block red-text"> {{ $message }} </span>
                                 @enderror
                             </div>
+                            <div class="input-field col s12 m12">
+                                <select name="sexo" id="sexo">
+                                    <option value="M">MASCULINO</option>
+                                    <option value="F">FEMENINO</option>
+                                </select>
+                               <label for="sexo">SEXO:</label>
+                                @error('sexo')
+                                <span class="help-block red-text"> {{ $message }} </span>
+                                @enderror
+                            </div>
+                            <div class="input-field col s12 m12">
+                               <select name="idp" id="idp">
+                                   <option value="">ELIJA UNA OPCION</option>
+                                   @foreach($tipopersonales as $tipopersonal)
+                                       <option value="{{ $tipopersonal->idp }}">{{ $tipopersonal->descripcion }}</option>
+                                   @endforeach
+                               </select>
+
+                                <label for="idp">SELECCIONE UN TIPO PERSONAL:</label>
+                                @error('idp')
+                                <span class="help-block red-text"> {{ $message }} </span>
+                                @enderror
+                            </div>
 
                         </div>
                         <div class="card-action right-align">
@@ -68,3 +91,4 @@
         </form>
     </div>
 @endsection
+

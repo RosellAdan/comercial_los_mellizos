@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\personalcontroller;
 use App\Http\Controllers\tipopersonalcontroller;
+use App\Models\personal;
 use App\Models\tipopersonal;
 use Illuminate\Support\Facades\Route;
 
@@ -34,18 +36,31 @@ Route::group(['prefix'=>'personal'], function (){
     Route::get('/', [personalcontroller::class,'index'])->name('personal.index');
     Route::get('/create', [personalcontroller::class,'create'])->name('personal.create');
     Route::post('/', [personalcontroller::class,'store'])->name('personal.store');
-    // Route::get('/{idp}', [personalcontroller::class,'show'])->name('personal.show');
-    Route::put('/{idp}', [personalcontroller::class,'update'])->name('personal.update');
-    Route::get('/{idp}/edit', [personalcontroller::class,'edit'])->name('personal.edit');
-    Route::get('/{idp}/destroy', [personalcontroller::class,'destroy'])->name('personal.destroy');
+    // Route::get('/{ci}', [personalcontroller::class,'show'])->name('personal.show');
+    Route::put('/{ci}', [personalcontroller::class,'update'])->name('personal.update');
+    Route::get('/{ci}/edit', [personalcontroller::class,'edit'])->name('personal.edit');
+    Route::get('/{ci}/destroy', [personalcontroller::class,'destroy'])->name('personal.destroy');
 
 
 });
-Route::get('/prueva',function (){
+Route::get('/prueba',function (){
     $tipopersonal = new tipopersonal();
     $tipopersonal->idp='12336';
     $tipopersonal->descripcion='hola como estas';
     $tipopersonal->save();
 
     return $tipopersonal;
+} );
+Route::get('/prueb',function (){
+    $personal = new personal();
+    $personal->ci='12336';
+    $personal->nombre='hola como estas';
+    $personal->apellido='hola  estas';
+    $personal->direccion='hola';
+    $personal->celular='468464';
+    $personal->sexo='m';
+    $personal->idp='1111';
+    $personal->save();
+
+    return $personal;
 } );
