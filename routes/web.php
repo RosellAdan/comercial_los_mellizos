@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\compracontroller;
 use App\Http\Controllers\personalcontroller;
 use App\Http\Controllers\proveedorcontroller;
 use App\Http\Controllers\tipopersonalcontroller;
@@ -63,6 +64,15 @@ Route::group(['prefix'=>'tipoproducto'], function (){
     Route::get('/{coditp}/edit', [tipoproductocontroller::class,'edit'])->name('tipoproducto.edit');
     Route::get('/{coditp}/destroy', [tipoproductocontroller::class,'destroy'])->name('tipoproducto.destroy');
 
+});
+Route::group(['prefix'=>'compra'], function (){
+    Route::get('/', [compracontroller::class,'index'])->name('compra.index');
+    Route::get('/create', [compracontroller::class,'create'])->name('compra.create');
+    Route::post('/', [compracontroller::class,'store'])->name('compra.store');
+    // Route::get('/{codicom}', [compracontroller::class,'show'])->name('compra.show');
+    Route::put('/{codicom}', [compracontroller::class,'update'])->name('compra.update');
+    Route::get('/{codicom}/edit', [compracontroller::class,'edit'])->name('compra.edit');
+    Route::get('/{codicom}/destroy', [compracontroller::class,'destroy'])->name('compra.destroy');
 });
 Route::get('/prueba',function (){
     $tipopersonal = new tipopersonal();
