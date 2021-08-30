@@ -33,9 +33,9 @@
                             </div>
 
                             <div class="input-field col s12 m4">
-                                <input id="cantidadstock " type="number" class="validate" name="cantidadstock " value="{{old('cantidadstock ')}}">
-                                <label for="cantidadstock ">STOCK:</label>
-                                @error('cantidadstock ')
+                                <input id="cantidadstock" type="number" class="validate" name="cantidadstock" value="{{old('cantidadstock')}}">
+                                <label for="cantidadstock">STOCK:</label>
+                                @error('cantidadstock')
                                 <span class="help-block red-text"> {{ $message }} </span>
                                 @enderror
                             </div>
