@@ -3,12 +3,14 @@
 use App\Http\Controllers\compracontroller;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\personalcontroller;
+use App\Http\Controllers\productocontroller;
 use App\Http\Controllers\proveedorcontroller;
 use App\Http\Controllers\tipopersonalcontroller;
 use App\Http\Controllers\tipoproductocontroller;
 use App\Http\Controllers\tipoventacontroller;
 use App\Http\Controllers\usuariocontroller;
 use App\Models\personal;
+use App\Models\producto;
 use App\Models\tipopersonal;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -102,7 +104,17 @@ Route::group(['prefix'=>'tipoventa'], function (){
 
 });
 
+Route::group(['prefix'=>'producto'], function (){
+    Route::get('/', [productocontroller::class,'index'])->name('producto.index');
+    Route::get('/create', [productocontroller::class,'create'])->name('producto.create');
+    Route::post('/', [productocontroller::class,'store'])->name('producto.store');
+    // Route::get('/{codiprod}', [productocontroller::class,'show'])->name('producto.show');
+    Route::put('/{codiprod}', [productocontroller::class,'update'])->name('producto.update');
+    Route::get('/{codiprod}/edit', [productocontroller::class,'edit'])->name('producto.edit');
+    Route::get('/{codiprod}/destroy', [productocontroller::class,'destroy'])->name('producto.destroy');
 
+
+});
 Route::get('/prueba',function (){
     $tipopersonal = new tipopersonal();
     $tipopersonal->idp='12336';
@@ -123,4 +135,16 @@ Route::get('/prueb',function (){
     $personal->save();
 
     return $personal;
+} );
+Route::get('/prue',function (){
+    $producto = new producto();
+    $producto->codiprod='12336';
+    $producto->descripcion='hola como estas';
+    $producto->cantidadstock ='12336';
+    $producto->precio='12336';
+    $producto->ci='11111111';
+    $producto->coditp='44';
+    $producto->save();
+
+    return $producto;
 } );

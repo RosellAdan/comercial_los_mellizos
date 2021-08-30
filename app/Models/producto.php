@@ -9,6 +9,7 @@ class producto extends Model
 {
     use HasFactory;
     protected $table='producto';
+    protected $primaryKey='codiprod';
 
     public function tipoproducto(){
 

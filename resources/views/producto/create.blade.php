@@ -2,7 +2,7 @@
 @section('content')
 
     <div class="row">
-        <form method="POST" action="{{ route('compra.store') }}">
+        <form method="POST" action="{{ route('producto.store') }}">
             @csrf
 
             <div class="col s12 m10 offset-m1 l6 offset-l3 xl6 offset-xl3">
@@ -18,53 +18,59 @@
 
                         <div class="row">
                             <div class="input-field col s12 m4">
-                                <input id="codicom" type="number" class="validate" name="codicom" value="{{old('codicom')}}">
-                                <label for="codicom">CEDULA DE IDENTIDAD :</label>
-                                @error('codicom')
+                                <input id="codiprod" type="number" class="validate" name="codiprod" value="{{old('codiprod')}}">
+                                <label for="codiprod">CODIGO DE PRODUCTO:</label>
+                                @error('codiprod')
                                     <span class="help-block red-text"> {{ $message }} </span>
                                 @enderror
                             </div>
                             <div class="input-field col s12 m4">
-                                <input id="fechacompra" type="text" class="validate" name="fechacompra" value="{{old('fechacompra')}}">
-                                <label for="fechacompra">NOMBRE:</label>
-                                @error('fechacompra')
+                                <input id="descripcion" type="text" class="validate" name="descripcion" value="{{old('descripcion')}}">
+                                <label for="descripcion">DESCRIPCION:</label>
+                                @error('descripcion')
                                 <span class="help-block red-text"> {{ $message }} </span>
                                 @enderror
                             </div>
 
                             <div class="input-field col s12 m4">
-                                <input id="totalcompra" type="number" class="validate" name="totalcompra" value="{{old('totalcompra')}}">
-                                <label for="totalcompra">APELLIDO:</label>
-                                @error('totalcompra')
+                                <input id="cantidadstock " type="number" class="validate" name="cantidadstock " value="{{old('cantidadstock ')}}">
+                                <label for="cantidadstock ">STOCK:</label>
+                                @error('cantidadstock ')
+                                <span class="help-block red-text"> {{ $message }} </span>
+                                @enderror
+                            </div>
+                            <div class="input-field col s12 m4">
+                                <input id="precio" type="number" class="validate" name="precio" value="{{old('precio')}}">
+                                <label for="precio">PRECIO:</label>
+                                @error('precio')
                                 <span class="help-block red-text"> {{ $message }} </span>
                                 @enderror
                             </div>
 
-
                             <div class="input-field col s12 m12">
-                               <select name="codip" id="codip">
+                               <select name="ci" id="ci">
                                    <option value="">ELIJA UNA OPCION</option>
-                                   @foreach($proveedores as $proveedor)
-                                       <option value="{{ $proveedor->codip }}">{{ $proveedor->nombre}} {{ $proveedor->apellido}}</option>
+                                   @foreach($personales as $personal)
+                                       <option value="{{ $personal->ci }}">{{ $personal->nombre}} {{ $personal->apellido}}</option>
                                    @endforeach
                                </select>
 
-                                <label for="idp">SELECCIONE UN PROVEEDOR:</label>
-                                @error('codip')
+                                <label for="idp">SELECCIONE QUIEN ESTA REGISTRANDO:</label>
+                                @error('ci')
                                 <span class="help-block red-text"> {{ $message }} </span>
                                 @enderror
                             </div>
                             <div class="input-field col s12 m12">
-                                <select name="ci" id="ci">
+                                <select name="coditp" id="coditp">
                                     <option value="">ELIJA UNA OPCION</option>
-                                    @foreach($personales as $personal)
-                                        <option value="{{ $personal->ci }}">{{ $personal->nombre }} {{ $personal->apellido}}</option>
+                                    @foreach($tipoproductos as $tipoproducto)
+                                        <option value="{{ $tipoproducto->coditp }}">{{ $tipoproducto->descripcion }}</option>
                                     @endforeach
 
                                 </select>
 
-                                <label for="idp">SELECCIONE EL REALIZADOR DE LA COMPRA:</label>
-                                @error('ci')
+                                <label for="idp">SELECCIONE EL TIPO DE PRODUCTO:</label>
+                                @error('coditp')
                                 <span class="help-block red-text"> {{ $message }} </span>
                                 @enderror
                             </div>
