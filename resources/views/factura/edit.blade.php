@@ -2,7 +2,7 @@
 @section('content')
 
     <div class="row">
-        <form method="POST" action="{{ route('producto.update', [$producto->codiprod]) }}">
+        <form method="POST" action="{{ route('factura.update', [$compra->codicom]) }}">
             @csrf
             @method('PUT')
 
@@ -19,59 +19,55 @@
 
                         <div class="row">
                             <div class="input-field col s12 m4">
-                                <input id="codiprod" type="number" class="validate" name="codiprod" value="{{$producto->codiprod}}">
-                                <label for="codiprod">CODIGO DE PRODUCTO:</label>
-                                @error('codiprod')
+                                <input id="codicom" type="number" class="validate" name="codicom" value="{{$compra->codicom}}">
+                                <label for="codicom">CEDULA DE IDENTIDAD :</label>
+                                @error('codicom')
                                 <span class="help-block red-text"> {{ $message }} </span>
                                 @enderror
                             </div>
                             <div class="input-field col s12 m4">
-                                <input id="descripcion" type="text" class="validate" name="descripcion" value="{{$producto->descripcion}}">
-                                <label for="descripcion">DESCRIPCION:</label>
-                                @error('descripcion')
+                                <input id="fechacompra" type="text" class="validate" name="fechacompra" value="{{$compra->fechacompra}}">
+                                <label for="fechacompra">NOMBRE:</label>
+                                @error('fechacompra')
                                 <span class="help-block red-text"> {{ $message }} </span>
                                 @enderror
                             </div>
 
                             <div class="input-field col s12 m4">
-                                <input id="cantidadstock" type="number" class="validate" name="cantidadstock" value="{{$producto->cantidadstock}}">
-                                <label for="cantidadstock">STOCK:</label>
-                                @error('cantidadstock')
-                                <span class="help-block red-text"> {{ $message }} </span>
-                                @enderror
-                            </div>
-                            <div class="input-field col s12 m4">
-                                <input id="precio" type="number" class="validate" name="precio" value="{{$producto->precio}}">
-                                <label for="precio">PRECIO:</label>
-                                @error('precio')
+                                <input id="totalcompra" type="number" class="validate" name="totalcompra" value="{{$compra->totalcompra}}">
+                                <label for="totalcompra">APELLIDO:</label>
+                                @error('totalcompra')
                                 <span class="help-block red-text"> {{ $message }} </span>
                                 @enderror
                             </div>
 
+
+                            <div class="input-field col s12 m12">
+                                <select name="codip" id="codip">
+                                    <option value="">ELIJA UNA OPCION</option>
+                                    @foreach($proveedores as $proveedor)
+                                        <option {{$proveedor->codip === $compra->codip?'selected':''}}
+                                                value="{{ $proveedor->codip }}">{{ $proveedor->nombre}} {{ $proveedor->apellido}}</option>
+                                    @endforeach
+                                </select>
+
+                                <label for="codip">SELECCIONE UN PROVEEDOR:</label>
+                                @error('codip')
+                                <span class="help-block red-text"> {{ $message }} </span>
+                                @enderror
+                            </div>
                             <div class="input-field col s12 m12">
                                 <select name="ci" id="ci">
                                     <option value="">ELIJA UNA OPCION</option>
                                     @foreach($personales as $personal)
-                                        <option {{$personal->ci === $producto->ci?'selected':''}} value="{{ $personal->ci }}">{{ $personal->nombre}} {{ $personal->apellido}}</option>
+                                        <option {{$personal->ci === $compra->ci?'selected':''}}
+                                                value="{{ $personal->ci }}">{{ $personal->nombre }} {{ $personal->apellido}}</option>
                                     @endforeach
+
                                 </select>
 
-                                <label for="idp">SELECCIONE QUIEN ESTA REGISTRANDO:</label>
+                                <label for="ci">SELECCIONE EL REALIZADOR DE LA COMPRA:</label>
                                 @error('ci')
-                                <span class="help-block red-text"> {{ $message }} </span>
-                                @enderror
-                            </div>
-                            <div class="input-field col s12 m12">
-                                <select name="coditp" id="coditp">
-                                    <option value="">ELIJA UNA OPCION</option>
-                                    @foreach($tipoproductos as $tipoproducto)
-                                        <option {{$tipoproducto->coditp === $producto->coditp?'selected':''}} value="{{ $tipoproducto->coditp }}">{{ $tipoproducto->descripcion }}</option>
-                                    @endforeach
-
-                                </select>
-
-                                <label for="idp">SELECCIONE EL TIPO DE PRODUCTO:</label>
-                                @error('coditp')
                                 <span class="help-block red-text"> {{ $message }} </span>
                                 @enderror
                             </div>

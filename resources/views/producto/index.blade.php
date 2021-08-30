@@ -38,9 +38,9 @@
 
 
                                 <td>
-                               {{--    <a href="{{ route('personal.show', [$personal->ci]) }}"><span class="new badge teal" data-badge-caption="ver"></span></a>
+                               {{--    <a href="{{ route('personal.show', [$personal->ci]) }}"><span class="new badge teal" data-badge-caption="ver"></span></a>--}}
                                     <a href="{{ route('producto.edit', [$producto->codiprod]) }}"><span class="new badge amber accent-4" data-badge-caption="editar"></span></a>
-                                    <a href="{{ route('compra.destroy', [$producto->codiprod]) }}"><span class="new badge red" data-badge-caption="eliminar"></span></a>--}}
+                                    <a href="{{ route('producto.destroy', [$producto->codiprod]) }}"><span class="new badge red" data-badge-caption="eliminar"></span></a>
 
                                 </td>
                             </tr>

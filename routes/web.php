@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\clientecontroller;
 use App\Http\Controllers\compracontroller;
+use App\Http\Controllers\facturacontroller;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\personalcontroller;
 use App\Http\Controllers\productocontroller;
@@ -138,7 +139,15 @@ Route::group(['prefix'=>'venta'], function (){
     Route::get('/{codiv}/edit', [ventacontroller::class,'edit'])->name('venta.edit');
     Route::get('/{codiv}/destroy', [ventacontroller::class,'destroy'])->name('venta.destroy');
 });
-
+Route::group(['prefix'=>'factura'], function (){
+    Route::get('/', [facturacontroller::class,'index'])->name('factura.index');
+    Route::get('/create', [facturacontroller::class,'create'])->name('factura.create');
+    Route::post('/', [facturacontroller::class,'store'])->name('factura.store');
+    // Route::get('/{numerofactura}', [facturacontroller::class,'show'])->name('factura.show');
+    Route::put('/{numerofactura}', [facturacontroller::class,'update'])->name('factura.update');
+    Route::get('/{numerofactura}/edit', [facturacontroller::class,'edit'])->name('factura.edit');
+    Route::get('/{numerofactura}/destroy', [facturacontroller::class,'destroy'])->name('factura.destroy');
+});
 
 
 
