@@ -1,13 +1,16 @@
 <?php
 
 use App\Http\Controllers\compracontroller;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\personalcontroller;
 use App\Http\Controllers\proveedorcontroller;
 use App\Http\Controllers\tipopersonalcontroller;
 use App\Http\Controllers\tipoproductocontroller;
+use App\Http\Controllers\tipoventacontroller;
 use App\Http\Controllers\usuariocontroller;
 use App\Models\personal;
 use App\Models\tipopersonal;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,7 +27,7 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/Home',[\App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home',[HomeController::class, 'index'])->name('home');
 Route::group(['prefix'=>'tipopersonal'], function (){
     Route::get('/', [tipopersonalcontroller::class,'index'])->name('tipopersonal.index');
     Route::get('/create', [tipopersonalcontroller::class,'create'])->name('tipopersonal.create');
@@ -84,6 +87,19 @@ Route::group(['prefix'=>'usuario'], function (){
     Route::put('/{idusuario}', [usuariocontroller::class,'update'])->name('usuario.update');
     Route::get('/{idusuario}/edit', [usuariocontroller::class,'edit'])->name('usuario.edit');
     Route::get('/{idusuario}/destroy', [usuariocontroller::class,'destroy'])->name('usuario.destroy');
+});
+
+
+Route::group(['prefix'=>'tipoventa'], function (){
+    Route::get('/', [tipoventacontroller::class,'index'])->name('tipoventa.index');
+    Route::get('/create', [tipoventacontroller::class,'create'])->name('tipoventa.create');
+    Route::post('/', [tipoventacontroller::class,'store'])->name('tipoventa.store');
+    // Route::get('/{coditv}', [tipoventacontroller::class,'show'])->name('tipoventa.show');
+    Route::put('/{coditv}', [tipoventacontroller::class,'update'])->name('tipoventa.update');
+    Route::get('/{coditv}/edit', [tipoventacontroller::class,'edit'])->name('tipoventa.edit');
+    Route::get('/{coditv}/destroy', [tipoventacontroller::class,'destroy'])->name('tipoventa.destroy');
+
+
 });
 
 

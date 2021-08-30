@@ -10,7 +10,7 @@ class tipoventa extends Model
     use HasFactory;
 
     protected $table='tipoventa';
-
+    protected $primaryKey='coditv';
     public function venta()
     {
         return $this->hasMany(venta::class,'coditv','coditv');
