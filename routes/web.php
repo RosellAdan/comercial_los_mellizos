@@ -5,6 +5,7 @@ use App\Http\Controllers\personalcontroller;
 use App\Http\Controllers\proveedorcontroller;
 use App\Http\Controllers\tipopersonalcontroller;
 use App\Http\Controllers\tipoproductocontroller;
+use App\Http\Controllers\usuariocontroller;
 use App\Models\personal;
 use App\Models\tipopersonal;
 use Illuminate\Support\Facades\Route;
@@ -74,6 +75,18 @@ Route::group(['prefix'=>'compra'], function (){
     Route::get('/{codicom}/edit', [compracontroller::class,'edit'])->name('compra.edit');
     Route::get('/{codicom}/destroy', [compracontroller::class,'destroy'])->name('compra.destroy');
 });
+
+Route::group(['prefix'=>'usuario'], function (){
+    Route::get('/', [usuariocontroller::class,'index'])->name('usuario.index');
+    Route::get('/create', [usuariocontroller::class,'create'])->name('usuario.create');
+    Route::post('/', [usuariocontroller::class,'store'])->name('usuario.store');
+    // Route::get('/{idusuario}', [usuariocontroller::class,'show'])->name('usuario.show');
+    Route::put('/{idusuario}', [usuariocontroller::class,'update'])->name('usuario.update');
+    Route::get('/{idusuario}/edit', [usuariocontroller::class,'edit'])->name('usuario.edit');
+    Route::get('/{idusuario}/destroy', [usuariocontroller::class,'destroy'])->name('usuario.destroy');
+});
+
+
 Route::get('/prueba',function (){
     $tipopersonal = new tipopersonal();
     $tipopersonal->idp='12336';

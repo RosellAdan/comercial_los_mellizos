@@ -9,6 +9,7 @@ class compra extends Model
 {
     use HasFactory;
     protected $table='compra';
+    protected $primaryKey ='codicom';
 
     public function proveedor(){
 

@@ -34,7 +34,7 @@ class compracontroller extends Controller
         $compra->save();
 
 
-        return redirect()->route('personal.index');
+        return redirect()->route('compra.index');
     }
     public function edit($idp){
 

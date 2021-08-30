@@ -10,6 +10,7 @@ class usuario extends Model
     use HasFactory;
 
     protected $table = 'usuario';
+    protected $primaryKey='idusuario';
 
     public function personal(){
 
