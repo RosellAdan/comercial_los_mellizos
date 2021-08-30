@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\clientecontroller;
 use App\Http\Controllers\compracontroller;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\personalcontroller;
@@ -115,6 +116,22 @@ Route::group(['prefix'=>'producto'], function (){
 
 
 });
+Route::group(['prefix'=>'cliente'], function (){
+    Route::get('/', [clientecontroller::class,'index'])->name('cliente.index');
+    Route::get('/create', [clientecontroller::class,'create'])->name('cliente.create');
+    Route::post('/', [clientecontroller::class,'store'])->name('cliente.store');
+    // Route::get('/{cic}', [clientecontroller::class,'show'])->name('cliente.show');
+    Route::put('/{cic}', [clientecontroller::class,'update'])->name('cliente.update');
+    Route::get('/{cic}/edit', [clientecontroller::class,'edit'])->name('cliente.edit');
+    Route::get('/{cic}/destroy', [clientecontroller::class,'destroy'])->name('cliente.destroy');
+
+
+});
+
+
+
+
+
 Route::get('/prueba',function (){
     $tipopersonal = new tipopersonal();
     $tipopersonal->idp='12336';
