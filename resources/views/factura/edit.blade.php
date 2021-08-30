@@ -2,7 +2,7 @@
 @section('content')
 
     <div class="row">
-        <form method="POST" action="{{ route('factura.update', [$compra->codicom]) }}">
+        <form method="POST" action="{{ route('factura.update', [$factura->numerofactura]) }}">
             @csrf
             @method('PUT')
 
@@ -19,55 +19,60 @@
 
                         <div class="row">
                             <div class="input-field col s12 m4">
-                                <input id="codicom" type="number" class="validate" name="codicom" value="{{$compra->codicom}}">
-                                <label for="codicom">CEDULA DE IDENTIDAD :</label>
-                                @error('codicom')
+                                <input id="numerofactura" type="number" class="validate" name="numerofactura" value="{{$factura->numerofactura}}">
+                                <label for="numerofactura">NUMERO DE FACTURA:</label>
+                                @error('numerofactura')
                                 <span class="help-block red-text"> {{ $message }} </span>
                                 @enderror
                             </div>
                             <div class="input-field col s12 m4">
-                                <input id="fechacompra" type="text" class="validate" name="fechacompra" value="{{$compra->fechacompra}}">
-                                <label for="fechacompra">NOMBRE:</label>
-                                @error('fechacompra')
+                                <input id="detalle" type="text" class="validate" name="detalle" value="{{$factura->detalle}}">
+                                <label for="detalle">DETALLE:</label>
+                                @error('detalle')
                                 <span class="help-block red-text"> {{ $message }} </span>
                                 @enderror
                             </div>
 
                             <div class="input-field col s12 m4">
-                                <input id="totalcompra" type="number" class="validate" name="totalcompra" value="{{$compra->totalcompra}}">
-                                <label for="totalcompra">APELLIDO:</label>
-                                @error('totalcompra')
+                                <input id="precio" type="number" class="validate" name="precio" value="{{$factura->precio}}">
+                                <label for="precio">PRECIO:</label>
+                                @error('precio')
+                                <span class="help-block red-text"> {{ $message }} </span>
+                                @enderror
+                            </div>
+                            <div class="input-field col s12 m4">
+                                <input id="fechafactura" type="text" class="validate" name="fechafactura" value="{{$factura->fechafactura}}">
+                                <label for="fechafactura">FECHA FACTURA:</label>
+                                @error('fechafactura')
                                 <span class="help-block red-text"> {{ $message }} </span>
                                 @enderror
                             </div>
 
 
                             <div class="input-field col s12 m12">
-                                <select name="codip" id="codip">
+                                <select name="codiv" id="codiv">
                                     <option value="">ELIJA UNA OPCION</option>
-                                    @foreach($proveedores as $proveedor)
-                                        <option {{$proveedor->codip === $compra->codip?'selected':''}}
-                                                value="{{ $proveedor->codip }}">{{ $proveedor->nombre}} {{ $proveedor->apellido}}</option>
+                                    @foreach($ventas as $venta)
+                                        <option {{$venta->codiv === $factura->codiv?'selected':''}} value="{{ $venta->codiv }}">{{ $venta->codiv}}</option>
                                     @endforeach
                                 </select>
 
-                                <label for="codip">SELECCIONE UN PROVEEDOR:</label>
-                                @error('codip')
+                                <label for="idp">SELECCIONE VENTA:</label>
+                                @error('codiv')
                                 <span class="help-block red-text"> {{ $message }} </span>
                                 @enderror
                             </div>
                             <div class="input-field col s12 m12">
-                                <select name="ci" id="ci">
+                                <select name="cic" id="cic">
                                     <option value="">ELIJA UNA OPCION</option>
-                                    @foreach($personales as $personal)
-                                        <option {{$personal->ci === $compra->ci?'selected':''}}
-                                                value="{{ $personal->ci }}">{{ $personal->nombre }} {{ $personal->apellido}}</option>
+                                    @foreach($clientes as $cliente)
+                                        <option {{$cliente->cic === $factura->cic?'selected':''}} value="{{ $cliente->cic }}">{{ $cliente->nombre }} {{ $cliente->apellido}}</option>
                                     @endforeach
 
                                 </select>
 
-                                <label for="ci">SELECCIONE EL REALIZADOR DE LA COMPRA:</label>
-                                @error('ci')
+                                <label for="idp">SELECCIONE CLIENTE:</label>
+                                @error('cic')
                                 <span class="help-block red-text"> {{ $message }} </span>
                                 @enderror
                             </div>

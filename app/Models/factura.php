@@ -9,6 +9,7 @@ class factura extends Model
 {
     use HasFactory;
     protected $table='factura';
+    protected $primaryKey ='numerofactura';
 
     public function venta(){
 
