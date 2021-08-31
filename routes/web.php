@@ -134,7 +134,8 @@ Route::group(['prefix'=>'venta'], function (){
     Route::get('/', [ventacontroller::class,'index'])->name('venta.index');
     Route::get('/create', [ventacontroller::class,'create'])->name('venta.create');
     Route::post('/', [ventacontroller::class,'store'])->name('venta.store');
-    // Route::get('/{codiv}', [ventacontroller::class,'show'])->name('personal.show');
+    //
+    //Route::get('/{codiv}', [ventacontroller::class,'show'])->name('venta.show');
     Route::put('/{codiv}', [ventacontroller::class,'update'])->name('venta.update');
     Route::get('/{codiv}/edit', [ventacontroller::class,'edit'])->name('venta.edit');
     Route::get('/{codiv}/destroy', [ventacontroller::class,'destroy'])->name('venta.destroy');

@@ -32,6 +32,13 @@ class ventacontroller extends Controller
 
         return redirect()->route('venta.index');
     }
+    //
+
+    public function show($idp){
+       $venta= venta::findOrFail($idp);
+       return view('venta.show',compact('venta'));
+
+    }
     public function edit($idp){
 
         $venta = venta::findOrFail($idp);
@@ -52,11 +59,11 @@ class ventacontroller extends Controller
 
         return redirect()->route('venta.index');
     }
-    public function show($idp)
-    {
-        $venta = venta::findOrFail($idp);
-        return view('venta.show', ['venta'=>$venta]);
-    }
+    //public function show($idp)
+    //{
+        //$venta = venta::findOrFail($idp);
+       // return view('venta.show', ['venta'=>$venta]);
+    //}
     public function destroy($idp)
     {
         $venta = venta::findOrFail($idp);
