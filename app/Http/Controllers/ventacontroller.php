@@ -23,15 +23,15 @@ class ventacontroller extends Controller
     {
         // dd($request);
         $venta = new venta();
-        $venta->codiv = $request->input('codiv');
-        $venta->fechaventa = $request->input('fechaventa');
-        $venta->precioventa = $request->input('precioventa');
+        $venta->fechaventa = now();
+        $venta->precioventa = 0;
         $venta->coditv = $request->input('coditv');
         $venta->save();
 
 
-        return redirect()->route('venta.index');
+        return redirect()->route('venta.show',[$venta->codiv]);
     }
+
     public function edit($idp){
 
         $venta = venta::findOrFail($idp);

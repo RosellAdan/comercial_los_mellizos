@@ -3,6 +3,7 @@
 use App\Http\Controllers\clientecontroller;
 use App\Http\Controllers\compracontroller;
 use App\Http\Controllers\detallecompracontroller;
+use App\Http\Controllers\detalleventacontroller;
 use App\Http\Controllers\facturacontroller;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\personalcontroller;
@@ -145,10 +146,19 @@ Route::group(['prefix'=>'venta'], function (){
     Route::get('/', [ventacontroller::class,'index'])->name('venta.index');
     Route::get('/create', [ventacontroller::class,'create'])->name('venta.create');
     Route::post('/', [ventacontroller::class,'store'])->name('venta.store');
-    // Route::get('/{codiv}', [ventacontroller::class,'show'])->name('personal.show');
+
+    Route::get('/{codiv}', [ventacontroller::class,'show'])->name('venta.show');
     Route::put('/{codiv}', [ventacontroller::class,'update'])->name('venta.update');
     Route::get('/{codiv}/edit', [ventacontroller::class,'edit'])->name('venta.edit');
     Route::get('/{codiv}/destroy', [ventacontroller::class,'destroy'])->name('venta.destroy');
+
+    Route::group(['prefix'=>'detalleventa'], function (){
+        Route::get('/create/{cod_venta}', [detalleventacontroller::class, 'create'])->name('venta.detalleventa.create');
+        Route::post('/{cod_venta}', [detalleventacontroller::class, 'store'])->name('venta.detalleventa.store');
+        Route::get('/{id}/destroy', [detalleventacontroller::class, 'destroy'])->name('venta.detalleventa.destroy');
+    });
+
+
 });
 Route::group(['prefix'=>'factura'], function (){
     Route::get('/', [facturacontroller::class,'index'])->name('factura.index');
