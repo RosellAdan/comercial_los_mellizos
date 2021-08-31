@@ -19,14 +19,14 @@
                         <div class="row">
                             <div class="input-field col s12 m4">
                                 <input id="codicom" type="number" class="validate" name="codicom" value="{{old('codicom')}}">
-                                <label for="codicom">CEDULA DE IDENTIDAD :</label>
+                                <label for="codicom">CODIGO DE COMPRA :</label>
                                 @error('codicom')
                                     <span class="help-block red-text"> {{ $message }} </span>
                                 @enderror
                             </div>
                             <div class="input-field col s12 m4">
                                 <input id="fechacompra" type="text" class="validate" name="fechacompra" value="{{old('fechacompra')}}">
-                                <label for="fechacompra">NOMBRE:</label>
+                                <label for="fechacompra">FECHA DE LA COMPRA:</label>
                                 @error('fechacompra')
                                 <span class="help-block red-text"> {{ $message }} </span>
                                 @enderror
@@ -34,7 +34,7 @@
 
                             <div class="input-field col s12 m4">
                                 <input id="totalcompra" type="number" class="validate" name="totalcompra" value="{{old('totalcompra')}}">
-                                <label for="totalcompra">APELLIDO:</label>
+                                <label for="totalcompra">TOTAL DE LA COMPRA:</label>
                                 @error('totalcompra')
                                 <span class="help-block red-text"> {{ $message }} </span>
                                 @enderror

@@ -60,7 +60,7 @@ class compracontroller extends Controller
     public function show($idp)
     {
         $compra = compra::findOrFail($idp);
-        return view('compra.show', ['compra'=>$compra]);
+        return view('compra.show',compact('compra'));
     }
     public function destroy($idp)
     {
