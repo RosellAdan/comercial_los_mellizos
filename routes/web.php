@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\clientecontroller;
 use App\Http\Controllers\compracontroller;
+use App\Http\Controllers\detallecompracontroller;
 use App\Http\Controllers\facturacontroller;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\personalcontroller;
@@ -82,6 +83,12 @@ Route::group(['prefix'=>'compra'], function (){
     Route::put('/{codicom}', [compracontroller::class,'update'])->name('compra.update');
     Route::get('/{codicom}/edit', [compracontroller::class,'edit'])->name('compra.edit');
     Route::get('/{codicom}/destroy', [compracontroller::class,'destroy'])->name('compra.destroy');
+
+    Route::group(['prefix'=>'detallecompra'], function (){
+        Route::get('/create/{cod_venta}', [detallecompracontroller::class, 'create'])->name('compra.detallecompra.create');
+        Route::post('/{cod_venta}', [detallecompracontroller::class, 'store'])->name('compra.detallecompra.store');
+        Route::get('/{id}/destroy', [detallecompracontroller::class, 'destroy'])->name('compra.detallecompra.destroy');
+    });
 });
 
 Route::group(['prefix'=>'usuario'], function (){

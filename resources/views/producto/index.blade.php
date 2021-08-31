@@ -17,7 +17,6 @@
                         <th>precio  </th>
                         <TH>TIPO PRODUCTO </TH>
                         <th>NOMBRE </th>
-                        <th> .</th>
                         <th>ACCIONES</th>
 
 
@@ -33,8 +32,8 @@
                                 <td>{{$producto->cantidadstock }}</td>
                                 <td>{{$producto->precio}}</td>
                                 <td>{{$producto->tipoproducto->descripcion}}</td>
-                                <td>{{$producto->personal->nombre}}</td>
-                                <td>{{$producto->personal->apellido}}</td>
+                                <td>{{$producto->personal->nombre.' '.$producto->personal->apellido}}</td>
+
 
 
                                 <td>

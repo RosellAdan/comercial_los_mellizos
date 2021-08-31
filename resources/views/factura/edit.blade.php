@@ -66,7 +66,7 @@
                                 <select name="cic" id="cic">
                                     <option value="">ELIJA UNA OPCION</option>
                                     @foreach($clientes as $cliente)
-                                        <option {{$cliente->cic === $factura->cic?'selected':''}} value="{{ $cliente->cic }}">{{ $cliente->nombre }} {{ $cliente->apellido}}</option>
+                                        <option {{$cliente->cic === $factura->cic?'selected':''}} value="{{ $cliente->cic }}">{{ $cliente->nombre .' '. $cliente->apellido}}</option>
                                     @endforeach
 
                                 </select>

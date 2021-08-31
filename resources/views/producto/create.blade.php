@@ -51,7 +51,7 @@
                                <select name="ci" id="ci">
                                    <option value="">ELIJA UNA OPCION</option>
                                    @foreach($personales as $personal)
-                                       <option value="{{ $personal->ci }}">{{ $personal->nombre}} {{ $personal->apellido}}</option>
+                                       <option value="{{ $personal->ci }}">{{ $personal->nombre.' '. $personal->apellido}}</option>
                                    @endforeach
                                </select>
 
