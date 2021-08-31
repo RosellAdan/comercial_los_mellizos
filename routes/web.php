@@ -16,6 +16,7 @@ use App\Http\Controllers\ventacontroller;
 use App\Models\personal;
 use App\Models\producto;
 use App\Models\tipopersonal;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -30,10 +31,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', function () {
+    return redirect()->route('home');
+});
+Auth::routes();
+Route::get('/home', [homeController::class, 'index'])->name('home');
 
 
-
-Route::get('/home',[HomeController::class, 'index'])->name('home');
 Route::group(['prefix'=>'tipopersonal'], function (){
     Route::get('/', [tipopersonalcontroller::class,'index'])->name('tipopersonal.index');
     Route::get('/create', [tipopersonalcontroller::class,'create'])->name('tipopersonal.create');
@@ -192,3 +196,23 @@ Route::get('/prue',function (){
 
     return $producto;
 } );
+Route::get('/use',function (){
+$user = new user();
+$user->name = 'administrador';
+$user->email = 'administrador@gmail.com';
+$user->password = bcrypt('administrador');
+
+$user->save();
+});
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/test', function (){
+    $personas = \App\Models\Personal::all();
+
+    return $personas;
+});
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

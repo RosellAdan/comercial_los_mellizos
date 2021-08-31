@@ -10,7 +10,7 @@
 
                     <div class="card-content">
                         <span class="card-title primary-text-color primary-text-style">
-                            Formulario de Registro
+                            Formulario de Registro de Cliente
                             </span>
                         <div class="row">
                             <div class="col s12 divider"></div>
@@ -54,6 +54,7 @@
                             </div>
                             <div class="input-field col s12 m12">
                                 <select name="sexo" id="sexo">
+                                    <option value="">ELIJA UNA OPCION</option>
                                     <option value="M">MASCULINO</option>
                                     <option value="F">FEMENINO</option>
                                 </select>

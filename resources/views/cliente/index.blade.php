@@ -4,7 +4,7 @@
 
     <div class="row" style="margin-top: 5%">
         <div class="col s4">
-            <a href="{{ route('cliente.create') }}" class="waves-effect waves-light btn dark-primary-color">Registrar</a>
+            <a href="{{ route('cliente.create') }}" class="waves-effect waves-light btn dark-primary-color">Registrar Cliente</a>
         </div>
         <div class="col s12 m12 l12 xl12">
             <div class="card">
