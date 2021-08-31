@@ -9,7 +9,7 @@ class venta extends Model
 {
     use HasFactory;
     protected $table='venta';
-
+    protected $primaryKey='codiv';
     public function tipoventa(){
 
         return $this->belongsTo(tipoventa::class,'coditv','coditv');

@@ -10,6 +10,7 @@ use App\Http\Controllers\tipopersonalcontroller;
 use App\Http\Controllers\tipoproductocontroller;
 use App\Http\Controllers\tipoventacontroller;
 use App\Http\Controllers\usuariocontroller;
+use App\Http\Controllers\ventacontroller;
 use App\Models\personal;
 use App\Models\producto;
 use App\Models\tipopersonal;
@@ -126,6 +127,16 @@ Route::group(['prefix'=>'cliente'], function (){
     Route::get('/{cic}/destroy', [clientecontroller::class,'destroy'])->name('cliente.destroy');
 
 
+});
+
+Route::group(['prefix'=>'venta'], function (){
+    Route::get('/', [ventacontroller::class,'index'])->name('venta.index');
+    Route::get('/create', [ventacontroller::class,'create'])->name('venta.create');
+    Route::post('/', [ventacontroller::class,'store'])->name('venta.store');
+    // Route::get('/{codiv}', [ventacontroller::class,'show'])->name('personal.show');
+    Route::put('/{codiv}', [ventacontroller::class,'update'])->name('venta.update');
+    Route::get('/{codiv}/edit', [ventacontroller::class,'edit'])->name('venta.edit');
+    Route::get('/{codiv}/destroy', [ventacontroller::class,'destroy'])->name('venta.destroy');
 });
 
 
