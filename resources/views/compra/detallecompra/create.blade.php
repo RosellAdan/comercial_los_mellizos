@@ -20,7 +20,7 @@
                                 <select name="producto" id="producto">
                                     <option value="">Elija una opción:</option>
                                     @foreach($productos as $producto)
-                                        <option value="{{ $producto->codiprod }}">{{ $producto->descripcion.' || '.$producto->precio.' Bs.' }}</option>
+                                        <option value="{{ $producto->codiprod }}">{{ $producto->descripcion.' -- '.$producto->precio.' Bs.' }}</option>
                                     @endforeach
                                 </select>
                                 <label for="producto">Seleccione un producto:</label>
@@ -30,10 +30,17 @@
                             </div>
 
                             <div class="input-field col s12 m6">
-                                <input id="cantidadstock" type="number" class="validate" name="cantidadstock" value="{{ old('cantidadstock') }}">
-                                <label for="cantidadstock">STOCK:</label>
-                                @error('cantidadstock')
+                                <input id="cantidadcompra" type="number" class="validate" name="cantidadcompra" value="{{ old('cantidadcompra') }}">
+                                <label for="cantidadcompra">STOCK:</label>
+                                @error('cantidadcompra')
                                     <span class="help-block red-text"> {{ $message }} </span>
+                                @enderror
+                            </div>
+                            <div class="input-field col s12 m6">
+                                <input id="descripcion" type="text" class="validate" name="descripcion" value="{{ old('descripcion') }}">
+                                <label for="descripcion">STOCK:</label>
+                                @error('descripcion')
+                                <span class="help-block red-text"> {{ $message }} </span>
                                 @enderror
                             </div>
                         </div>

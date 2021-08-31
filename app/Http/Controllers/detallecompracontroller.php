@@ -28,12 +28,12 @@ class detallecompracontroller extends Controller
         $detallecompra->codiprod = $codiprod;
         $detallecompra->preciocompra = $producto->precio;
         $detallecompra->cantidadcompra = $request->input('cantidadcompra');
-        $detallecompra->descripcioncompra = $request->input('descripcioncompra');
+        $detallecompra->descripcion = $request->input('descripcion');
 
         $detallecompra->save();
 
             $compra = compra::findOrFail($codicom);
-            $compra->preciocompra = $compra->preciocompra + ($detallecompra->cantidadcompra*$detallecompra->preciocompra);
+            $compra->totalcompra = $compra->totalcompra + ($detallecompra->cantidadcompra*$detallecompra->preciocompra);
             $compra->save();
 
             return redirect()->route('compra.show', [$codicom]);
@@ -47,7 +47,7 @@ class detallecompracontroller extends Controller
         $detallecompra->delete();
 
         $compra = compra::findOrFail($detallecompra->codicom);
-        $compra->preciocompra = $compra->preciocompra - ($detallecompra->cantidadcompra * $detallecompra->preciocompra);
+        $compra->totalcompra = $compra->totalcompra - ($detallecompra->cantidadcompra * $detallecompra->preciocompra);
         $compra->save();
 
         return redirect()->route('compra.show', [$compra->codicom]);

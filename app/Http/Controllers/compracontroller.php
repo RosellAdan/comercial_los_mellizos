@@ -25,16 +25,16 @@ class compracontroller extends Controller
     {
         // dd($request);
         $compra = new compra();
-        $compra->codicom = $request->input('codicom');
-        $compra->fechacompra = $request->input('fechacompra');
-        $compra->totalcompra = $request->input('totalcompra');
+
+        $compra->fechacompra = now();
+        $compra->totalcompra = 0;
         $compra->codip = $request->input('codip');
         $compra->ci = $request->input('ci');
 
         $compra->save();
 
 
-        return redirect()->route('compra.index');
+        return redirect()->route('compra.show',[$compra->codicom]);
     }
     public function edit($idp){
 
@@ -60,6 +60,7 @@ class compracontroller extends Controller
     public function show($idp)
     {
         $compra = compra::findOrFail($idp);
+        $compra->load(['detallecompra']);
         return view('compra.show',compact('compra'));
     }
     public function destroy($idp)

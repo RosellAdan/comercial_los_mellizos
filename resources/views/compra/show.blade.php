@@ -62,22 +62,24 @@
                 <table class="striped" cellspacing="0" width="100%">
                     <thead>
                     <tr>
-                        <th>codicom</th>
-                        <th>codiprod</th>
-                        <th>preciocompra Unit. (Bs.)</th>
-                        <th>cantidadcompra</th>
-                        <th>descripcioncompra</th>
-                        <th>acciones</th>
+                        <th>CODI COM</th>
+                        <th>PRODUCTO</th>
+                        <th>CANTIDAD DE LA COMPRA</th>
+                        <th>PRECIO COMPRA Unit. (Bs.)</th>
+                        <TH>PRECIO TOTAL</TH>
+                        <th>DESCRIPCION COMPRA</th>
+                        <th>ACCIONES</th>
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($compra->detallecompras as $detallecompra)
+                    @foreach($compra->detallecompra as $detallecompra)
                         <tr>
                             <td>{{ $detallecompra->codicom }}</td>
-                            <td>{{ $detallecompra->codiprod->nombre }}</td>
-                            <td>{{ $detallecompra->cantidad. ' unidades' }}</td>
+                            <td>{{ $detallecompra->producto->descripcion }}</td>
+                            <td>{{ $detallecompra->cantidadcompra. ' unidades' }}</td>
                             <td>{{ $detallecompra->preciocompra.' Bs.' }}</td>
-                            <td>{{ $detallecompra->cantidad * $detalle->precio_unitario.' Bs.' }}</td>
+                            <td>{{ $detallecompra->cantidadcompra * $detallecompra->preciocompra.' Bs.' }}</td>
+                            <td>{{ $detallecompra->descripcion}}</td>
                             <td>
                                 <a href="{{ route('compra.detallecompra.destroy', [$detallecompra->id]) }}"><span class="new badge red" data-badge-caption="eliminar"></span></a>
                             </td>
