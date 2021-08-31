@@ -78,7 +78,7 @@ Route::group(['prefix'=>'compra'], function (){
     Route::get('/', [compracontroller::class,'index'])->name('compra.index');
     Route::get('/create', [compracontroller::class,'create'])->name('compra.create');
     Route::post('/', [compracontroller::class,'store'])->name('compra.store');
-    // Route::get('/{codicom}', [compracontroller::class,'show'])->name('compra.show');
+    Route::get('/{codicom}', [compracontroller::class,'show'])->name('compra.show');
     Route::put('/{codicom}', [compracontroller::class,'update'])->name('compra.update');
     Route::get('/{codicom}/edit', [compracontroller::class,'edit'])->name('compra.edit');
     Route::get('/{codicom}/destroy', [compracontroller::class,'destroy'])->name('compra.destroy');
