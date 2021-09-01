@@ -59,7 +59,7 @@ class proveedorcontroller extends Controller
     }
     public function destroy($idp)
     {
-        $proveedor = tipopersonal::findOrFail($idp);
+        $proveedor = proveedor::findOrFail($idp);
         $proveedor->delete();
         return redirect()->route('proveedor.index');
     }
