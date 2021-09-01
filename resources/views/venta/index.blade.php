@@ -26,7 +26,7 @@
                                 <td>{{ $venta->precioventa }}</td>
                                 <td>{{ $venta->tipoventa->tipopago }}</td>
                                 <td>
-                               {{--    <a href="{{ route('personal.show', [$personal->ci]) }}"><span class="new badge teal" data-badge-caption="ver"></span></a>--}}
+                                <a href="{{ route('venta.show', [$venta->codiv]) }}"><span class="new badge teal" data-badge-caption="ver"></span></a>
                                     <a href="{{ route('venta.edit', [$venta->codiv]) }}"><span class="new badge amber accent-4" data-badge-caption="editar"></span></a>
                                     <a href="{{ route('venta.destroy', [$venta->codiv]) }}"><span class="new badge red" data-badge-caption="eliminar"></span></a>
 

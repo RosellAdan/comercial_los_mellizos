@@ -2,70 +2,51 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\venta;
 use App\Models\detalleventa;
-use App\Models\personal;
-use App\Models\proveedor;
-use Illuminate\Database\Eloquent\Model;
+use App\Models\producto;
 use Illuminate\Http\Request;
 
 class detalleventacontroller extends Controller
 {
-    public function index(){
-        $detallesventas = detalleventa::all();
-        $detallesventas->load(['producto']);
-        $detallesventas->load(['venta']);
-        return view('detalleventa.index',compact('detallesventas'));
+    // public static $TIPO_PER = 2;
+
+    public function create($codiv){
+        $productos = producto::all();
+//        return view('venta.detalle.create', ['productos'=>$productos, 'cod_venta'=>$cod_venta]);
+        return view('venta.detalleventa.create', compact('productos', 'codiv'));
     }
-    public function create(){
-        $productos= producto::all();
-        $ventas= venta::all();
-        return view('detalleventa.create',compact('productos','ventas'));
-    }
-    public function store(request $request)
-    {
-        // dd($request);
+
+
+    public function store(Request $request, $codiv){
+        $codiprod = $request->input('producto');
+        $producto = producto::findOrFail($codiprod);
         $detalleventa = new detalleventa();
+        $detalleventa->codiprod = $codiprod;
+        $detalleventa->codiv = $codiv;
         $detalleventa->cantidaventa = $request->input('cantidaventa');
-        $detalleventa->fechacompra = $request->input('fechacompra');
-        $detalleventa->totalcompra = $request->input('totalcompra');
-        $detalleventa->codiprod = $request->input('codiprod');
-        $detalleventa->codiv = $request->input('codiv');
-
-        $detalleventa->save();
-
-
-        return redirect()->route('detalleventa.index');
-    }
-    public function edit($idp){
-
-        $detalleventa = detalleventa::findOrFail($idp);
-        $productos= personal::all();
-        $ventas= proveedor::all();
-        return view('detalleventa.edit',compact('detalleventa','productos','ventas'));
-    }
-    public function update(Request $request,$idp)
-    {
-        $detalleventa = detalleventa::findOrFail($idp);
-        $detalleventa->cantidadventa = $request->input('cantidaventa');
-        $detalleventa->precioventa = $request->input('precioventa');
+        $detalleventa->precioventa = $producto->precio;
         $detalleventa->descripcionventa = $request->input('descripcionventa');
-        $detalleventa->codiprod = $request->input('codiprod');
-        $detalleventa->codiv = $request->input('codiv');
 
         $detalleventa->save();
 
+        $venta = venta::findOrFail($codiv);
+        $venta->precioventa = $venta->precioventa + ($detalleventa->cantidaventa*$detalleventa->precioventa);
+        $venta->save();
 
-        return redirect()->route('detalleventa.index');
+        return redirect()->route('venta.show', [$codiv]);
+
+
     }
-    public function show($idp)
-    {
-        $detalleventa = detalleventa::findOrFail($idp);
-        return view('detalleventa.show', ['detalleventa'=>$detalleventa]);
-    }
-    public function destroy($idp)
-    {
-        $detalleventa = detalleventa::findOrFail($idp);
+
+    public function destroy($id){
+        $detalleventa = detalleventa::findOrFail($id);
         $detalleventa->delete();
-        return redirect()->route('detalleventa.index');
+
+        $venta = venta::findOrFail($detalleventa->codiv);
+        $venta->precioventa = $venta->precioventa - ($detalleventa->cantidaventa * $detalleventa->precioventa);
+        $venta->save();
+
+        return redirect()->route('venta.show', [$venta->codiv]);
     }
 }
