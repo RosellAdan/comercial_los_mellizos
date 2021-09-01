@@ -11,8 +11,8 @@ class cliente extends Model
     protected $table='cliente';
     protected $primaryKey='cic';
 
-    public function factura(){
+    public function venta(){
 
-        return $this->hasMany(factura::class,'cic','cic');
+        return $this->hasMany(venta::class,'cic','cic');
     }
 }

@@ -10,10 +10,10 @@ class usuario extends Model
     use HasFactory;
 
     protected $table = 'usuario';
-    protected $primaryKey='idusuario';
+  //  protected $primaryKey='idusuario';
 
-    public function personal(){
+  //  public function personal(){
 
-        return $this->belongsTo(personal::class ,'ci', 'ci');
-    }
+  //      return $this->belongsTo(personal::class ,'ci', 'ci');
+   // }
 }

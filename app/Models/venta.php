@@ -22,4 +22,8 @@ class venta extends Model
 
         return $this->hasMany(factura::class,'codiv','codiv');
     }
+    public function cliente(){
+
+        return $this->belongsTo(cliente::class,'cic','cic');
+    }
 }

@@ -16,8 +16,8 @@ class CreateUsuarioTable extends Migration
         Schema::create('usuario', function (Blueprint $table) {
             $table->id("idusuario");
             $table->string("contraseña");
-            $table->unsignedBigInteger("ci");
-            $table->foreign("ci")->references("ci")->on("personal");
+         //   $table->unsignedBigInteger("ci");
+          //  $table->foreign("ci")->references("ci")->on("personal");
             $table->timestamps();
 
 

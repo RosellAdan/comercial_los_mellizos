@@ -12,23 +12,25 @@
                     <thead>
                     <tr>
                         <th>NUMERO DE USUARIO</th>
-                        <th>CONTRASEÑA</th>
                         <th>NOMBRE DE USUARIO</th>
-                        <th>APELLIDO DE USUARIO</th>
+                        <th>CORREO ELECTRONICO</th>
+                        <th>CONTRASEÑA</th>
+                        <th>CARNET DE IDENTIDAD</th>
                         <th>Acciones</th>
                     </tr>
                     </thead>
                     <tbody>
-                        @foreach($usuarios as $usuario)
+                        @foreach($users as $user)
                             <tr>
-                                <td>{{ $usuario->idusuario }}</td>
-                                <td>{{ $usuario->contraseña }}</td>
-                                <td>{{ $usuario->personal->nombre}}</td>
-                                <td>{{ $usuario->personal->apellido}}</td>
+                                <td>{{ $user->id }}</td>
+                                <td>{{ $user->name }}</td>
+                                <td>{{ $user->email}}</td>
+                                <td>{{ $user->password}}</td>
+                                <td>{{ $user->ci}}</td>
                                 <td>
                                {{--    <a href="{{ route('personal.show', [$personal->ci]) }}"><span class="new badge teal" data-badge-caption="ver"></span></a>--}}
-                                    <a href="{{ route('usuario.edit', [$usuario->idusuario]) }}"><span class="new badge amber accent-4" data-badge-caption="editar"></span></a>
-                                    <a href="{{ route('usuario.destroy', [$usuario->idusuario]) }}"><span class="new badge red" data-badge-caption="eliminar"></span></a>
+                                    <a href="{{ route('usuario.edit', [$user->id]) }}"><span class="new badge amber accent-4" data-badge-caption="editar"></span></a>
+                                    <a href="{{ route('usuario.destroy', [$user->id]) }}"><span class="new badge red" data-badge-caption="eliminar"></span></a>
 
                                 </td>
                             </tr>

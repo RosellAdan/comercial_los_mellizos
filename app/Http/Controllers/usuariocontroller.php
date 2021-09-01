@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\usuario;
 use App\Models\personal;
 use Illuminate\Database\Eloquent\Model;
@@ -10,10 +11,10 @@ use Illuminate\Http\Request;
 class usuariocontroller extends Controller
 {
     public function index(){
-        $usuarios = usuario::all();
-        $usuarios->load(['personal']);
+        $users = user::all();
+        $users->load(['personal']);
 
-        return view('usuario.index',compact('usuarios'));
+        return view('usuario.index',compact('users'));
     }
     public function create(){
         $personales= personal::all();
@@ -22,43 +23,48 @@ class usuariocontroller extends Controller
     public function store(request $request)
     {
         // dd($request);
-        $usuario = new usuario();
-        $usuario->idusuario = $request->input('idusuario');
-        $usuario->contraseña = $request->input('contraseña');
-        $usuario->ci = $request->input('ci');
-        $usuario->save();
+        $user = new user();
+        $user->id = $request->input('id');
+        $user->name= $request->input('name');
+        $user->email= $request->input('email');
+        $user->password=  bcrypt($request->input('password'));
+        $user->ci = $request->input('ci');
+        $user->save();
 
 
         return redirect()->route('usuario.index');
     }
     public function edit($idp){
 
-        $usuario = usuario::findOrFail($idp);
+        $user = user::findOrFail($idp);
         $personales= personal::all();
 
-        return view('usuario.edit',compact('usuario','personales'));
+        return view('usuario.edit',compact('user','personales'));
     }
     public function update(Request $request,$idp)
     {
-        $usuario = usuario::findOrFail($idp);
-        $usuario->idusuario = $request->input('idusuario');
-        $usuario->contraseña = $request->input('contraseña');
-        $usuario->ci = $request->input('ci');
+        $user = user::findOrFail($idp);
+        $user->id = $request->input('id');
+        $user->name= $request->input('name');
+        $user->email= $request->input('email');
+        $user->password=  bcrypt($request->input('password'));
+        $user->ci = $request->input('ci');
+        $user->save();
 
-        $usuario->save();
+
 
 
         return redirect()->route('usuario.index');
     }
     public function show($idp)
     {
-        $usuario = usuario::findOrFail($idp);
-        return view('usuario.show', ['usuario'=>$usuario]);
+        $user = user::findOrFail($idp);
+        return view('usuario.show', ['user'=>$user]);
     }
     public function destroy($idp)
     {
-        $usuario = usuario::findOrFail($idp);
-        $usuario->delete();
+        $user = user::findOrFail($idp);
+        $user->delete();
         return redirect()->route('usuario.index');
     }
 }

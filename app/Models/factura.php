@@ -15,8 +15,5 @@ class factura extends Model
 
         return $this->belongsTo(venta::class,'codiv','codiv');
     }
-    public function cliente(){
 
-        return $this->belongsTo(cliente::class,'cic','cic');
-    }
 }

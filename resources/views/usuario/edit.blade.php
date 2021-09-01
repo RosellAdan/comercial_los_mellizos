@@ -2,7 +2,7 @@
 @section('content')
 
     <div class="row">
-        <form method="POST" action="{{ route('usuario.update', [$usuario->idusuario]) }}">
+        <form method="POST" action="{{ route('usuario.update', [$user->id]) }}">
             @csrf
             @method('PUT')
 
@@ -19,16 +19,30 @@
 
                         <div class="row">
                             <div class="input-field col s12 m4">
-                                <input id="idusuario" type="number" class="validate" name="idusuario" value="{{$usuario->idusuario}}">
-                                <label for="idusuario">ID DE USUARIO:</label>
-                                @error('idusuario')
+                                <input id="id" type="number" class="validate" name="id" value="{{$user->id}}">
+                                <label for="id">ID DE USUARIO:</label>
+                                @error('id')
                                 <span class="help-block red-text"> {{ $message }} </span>
                                 @enderror
                             </div>
                             <div class="input-field col s12 m4">
-                                <input id="contraseña" type="text" class="validate" name="contraseña" value="{{$usuario->contraseña}}">
-                                <label for="contraseña">CONTRASEÑA:</label>
-                                @error('contraseña')
+                                <input id="name" type="text" class="validate" name="name" value="{{$user->name}}">
+                                <label for="name">NOMBRE:</label>
+                                @error('name')
+                                <span class="help-block red-text"> {{ $message }} </span>
+                                @enderror
+                            </div>
+                            <div class="input-field col s12 m4">
+                                <input id="email" type="text" class="validate" name="email" value="{{$user->email}}">
+                                <label for="email">COREEO:</label>
+                                @error('email')
+                                <span class="help-block red-text"> {{ $message }} </span>
+                                @enderror
+                            </div>
+                            <div class="input-field col s12 m4">
+                                <input id="password" type="text" class="validate" name="password" value="{{$user->password}}">
+                                <label for="password">CONTRASEÑA:</label>
+                                @error('password')
                                 <span class="help-block red-text"> {{ $message }} </span>
                                 @enderror
                             </div>
@@ -37,13 +51,12 @@
                                 <select name="ci" id="ci">
                                     <option value="">ELIJA UNA OPCION</option>
                                     @foreach($personales as $personal)
-                                        <option {{$personal->ci === $usuario->ci?'selected':''}}
-                                            value="{{ $personal->ci }}">{{ $personal->nombre }} {{ $personal->apellido}}</option>
+                                        <option {{$personal->ci === $user->ci?'selected':''}} value="{{ $personal->ci }}">{{ $personal->nombre .' '. $personal->apellido}}</option>
                                     @endforeach
 
                                 </select>
 
-                                <label for="ci">SELECCIONE EL REALIZADOR DE LA COMPRA:</label>
+                                <label for="idp">SELECCIONE PERSONAL PARA USUARIO:</label>
                                 @error('ci')
                                 <span class="help-block red-text"> {{ $message }} </span>
                                 @enderror

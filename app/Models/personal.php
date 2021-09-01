@@ -16,9 +16,9 @@ class personal extends Model
         return $this->belongsTo(tipopersonal::class ,'idp', 'idp');
 
     }
-    public function usuario(){
+    public function User(){
 
-        return $this->hasMany(usuario::class, 'ci', 'ci');
+        return $this->hasMany(User::class, 'ci', 'ci');
     }
     public function compra(){
 

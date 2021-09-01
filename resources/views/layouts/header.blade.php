@@ -7,9 +7,9 @@
 <nav class="navbar nav-extended no-padding dark-primary-color">
     <div class="nav-wrapper">
         @auth
-            <a href="{{ route('home') }}" class="brand-logo center hide-on-small-only">COMERCIAL FIGMA</a>
+            <a href="{{ route('home') }}" class="brand-logo center hide-on-small-only">COMERCIAL LOS MELLIZOS</a>
             <ul id="nav-mobile" class="right">
-                <li><a href="{{ route('home') }}" class="waves-effect dark-primary-color-text" type="submit"><i class="material-icons">person</i></a></li>
+                <li><a href="{{ route('home') }}" class="waves-effect dark-primary-color-text" type="submit"><i class="material-icons">personal</i></a></li>
                 <li>
                     <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="material-icons left">exit_to_app</i>Salir</a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" hidden>

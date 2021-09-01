@@ -18,16 +18,30 @@
 
                         <div class="row">
                             <div class="input-field col s12 m4">
-                                <input id="idusuario" type="number" class="validate" name="idusuario" value="{{old('idusuario')}}">
-                                <label for="idusuario">ID DE USUARIO:</label>
-                                @error('idusuario')
+                                <input id="id" type="number" class="validate" name="id" value="{{old('id')}}">
+                                <label for="id">ID DE USUARIO:</label>
+                                @error('id')
                                     <span class="help-block red-text"> {{ $message }} </span>
                                 @enderror
                             </div>
                             <div class="input-field col s12 m4">
-                                <input id="contraseña" type="text" class="validate" name="contraseña" value="{{old('contraseña')}}">
-                                <label for="contraseña">CONTRASEÑA:</label>
-                                @error('contraseña')
+                                <input id="name" type="text" class="validate" name="name" value="{{old('name')}}">
+                                <label for="name">NOMBRE:</label>
+                                @error('name')
+                                <span class="help-block red-text"> {{ $message }} </span>
+                                @enderror
+                            </div>
+                            <div class="input-field col s12 m4">
+                                <input id="email" type="text" class="validate" name="email" value="{{old('email')}}">
+                                    <label for="email">COREEO:</label>
+                                @error('email')
+                                <span class="help-block red-text"> {{ $message }} </span>
+                                @enderror
+                            </div>
+                            <div class="input-field col s12 m4">
+                                <input id="password" type="text" class="validate" name="password" value="{{old('password')}}">
+                                <label for="password">CONTRASEÑA:</label>
+                                @error('password')
                                 <span class="help-block red-text"> {{ $message }} </span>
                                 @enderror
                             </div>
@@ -36,12 +50,12 @@
                                 <select name="ci" id="ci">
                                     <option value="">ELIJA UNA OPCION</option>
                                     @foreach($personales as $personal)
-                                        <option value="{{ $personal->ci }}">{{ $personal->nombre }} {{ $personal->apellido}}</option>
+                                        <option value="{{ $personal->ci }}">{{ $personal->nombre .' '. $personal->apellido}}</option>
                                     @endforeach
 
                                 </select>
 
-                                <label for="idp">SELECCIONE EL REALIZADOR DE LA COMPRA:</label>
+                                <label for="idp">SELECCIONE PERSONAL PARA USUARIO:</label>
                                 @error('ci')
                                 <span class="help-block red-text"> {{ $message }} </span>
                                 @enderror

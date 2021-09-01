@@ -211,7 +211,7 @@ $user = new user();
 $user->name = 'administrador';
 $user->email = 'administrador@gmail.com';
 $user->password = bcrypt('administrador');
-
+$user->ci = '1';
 $user->save();
 });
 Auth::routes();
