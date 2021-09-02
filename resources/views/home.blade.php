@@ -21,7 +21,8 @@
                         </div>
 
                         <div class="row">
-                            <h3 class="center">BIENVENIDO A EL COMERCIAL LOS MELLIZOS</h3>
+                            <h3 class="center">BIENVENIDO AL COMERCIAL </h3>
+                            <h3 class="center"> LOS MELLIZOS</h3>
 
                             <div class="col s12 center">
                                 <img src="{{asset('imgs/prin.jpg')}}" alt="" class=" responsive-img"> <!-- notice the "circle" class -->
