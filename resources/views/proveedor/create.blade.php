@@ -10,20 +10,20 @@
 
                     <div class="card-content">
                         <span class="card-title primary-text-color primary-text-style">
-                            Formulario de Registro
+                             Registro de Proveedor
                             </span>
                         <div class="row">
                             <div class="col s12 divider"></div>
                         </div>
 
                         <div class="row">
-                            <div class="input-field col s12 m4">
+                           {{-- <div class="input-field col s12 m4">
                                 <input id="codip" type="number" class="validate" name="codip" value="{{old('codip')}}">
                                 <label for="codip">CODIGO PROVEEDOR:</label>
                                 @error('codip')
                                     <span class="help-block red-text"> {{ $message }} </span>
                                 @enderror
-                            </div>
+                            </div>--}}
                             <div class="input-field col s12 m4">
                                 <input id="ci" type="number" class="validate" name="ci" value="{{old('ci')}}">
                                 <label for="ci">CEDULA DE IDENTIDAD:</label>
@@ -47,6 +47,7 @@
                             </div>
                             <div class="input-field col s12 m12">
                                 <select name="sexo" id="sexo">
+                                    <option value="">ELIJA UNA OPCION</option>
                                     <option value="M">MASCULINO</option>
                                     <option value="F">FEMENINO</option>
                                 </select>

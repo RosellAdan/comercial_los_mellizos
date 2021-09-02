@@ -27,7 +27,7 @@ class productocontroller extends Controller
     {
         // dd($request);
         $producto = new producto();
-        $producto->codiprod = $request->input('codiprod');
+       // $producto->codiprod = $request->input('codiprod');
         $producto->descripcion = $request->input('descripcion');
         $producto->cantidadstock = $request->input('cantidadstock');
         $producto->precio = $request->input('precio');

@@ -11,12 +11,12 @@
                 <table class="striped" cellspacing="0" width="100%">
                     <thead>
                     <tr>
-                        <th>NUMERO DE USUARIO</th>
+                        <th>CODIGO</th>
                         <th>NOMBRE DE USUARIO</th>
                         <th>CORREO ELECTRONICO</th>
                         <th>CONTRASEÑA</th>
-                        <th>CARNET DE IDENTIDAD</th>
-                        <th>Acciones</th>
+                        <th>CARNET</th>
+                        <th>ACCIONES</th>
                     </tr>
                     </thead>
                     <tbody>

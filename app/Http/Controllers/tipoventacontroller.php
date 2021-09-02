@@ -23,7 +23,7 @@ class tipoventacontroller extends Controller
     public function store(request $request)
     {
         $tipoventa = new tipoventa();
-        $tipoventa->coditv = $request->input('coditv');
+     //   $tipoventa->coditv = $request->input('coditv');
         $tipoventa->tipopago = $request->input('tipopago');
 
         $tipoventa->save();

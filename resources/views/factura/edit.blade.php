@@ -18,13 +18,13 @@
                         </div>
 
                         <div class="row">
-                            <div class="input-field col s12 m4">
+                       {{--     <div class="input-field col s12 m4">
                                 <input id="numerofactura" type="number" class="validate" name="numerofactura" value="{{$factura->numerofactura}}">
                                 <label for="numerofactura">NUMERO DE FACTURA:</label>
                                 @error('numerofactura')
                                 <span class="help-block red-text"> {{ $message }} </span>
                                 @enderror
-                            </div>
+                            </div>--}}
                             <div class="input-field col s12 m4">
                                 <input id="detalle" type="text" class="validate" name="detalle" value="{{$factura->detalle}}">
                                 <label for="detalle">DETALLE:</label>
@@ -62,32 +62,32 @@
                                 <span class="help-block red-text"> {{ $message }} </span>
                                 @enderror
                             </div>
-                            <div class="input-field col s12 m12">
-                                <select name="cic" id="cic">
-                                    <option value="">ELIJA UNA OPCION</option>
-                                    @foreach($clientes as $cliente)
-                                        <option {{$cliente->cic === $factura->cic?'selected':''}} value="{{ $cliente->cic }}">{{ $cliente->nombre .' '. $cliente->apellido}}</option>
-                                    @endforeach
+    {{--  <div class="input-field col s12 m12">
+         <select name="cic" id="cic">
+             <option value="">ELIJA UNA OPCION</option>
+             @foreach($clientes as $cliente)
+                 <option {{$cliente->cic === $factura->cic?'selected':''}} value="{{ $cliente->cic }}">{{ $cliente->nombre .' '. $cliente->apellido}}</option>
+             @endforeach
 
-                                </select>
+         </select>
 
-                                <label for="idp">SELECCIONE CLIENTE:</label>
-                                @error('cic')
-                                <span class="help-block red-text"> {{ $message }} </span>
-                                @enderror
-                            </div>
+         <label for="idp">SELECCIONE CLIENTE:</label>
+         @error('cic')
+         <span class="help-block red-text"> {{ $message }} </span>
+         @enderror
+     </div>--}}
 
-                        </div>
-                        <div class="card-action right-align">
-                            <button type="submit" class="waves-effect waves-brown btn-flat red-text bold" onclick="showProgress()">Guardar</button>
-                        </div>
-                    </div>
+ </div>
+ <div class="card-action right-align">
+     <button type="submit" class="waves-effect waves-brown btn-flat red-text bold" onclick="showProgress()">Guardar</button>
+ </div>
+</div>
 
-                </div>
-            </div>
+</div>
+</div>
 
-        </form>
-    </div>
+</form>
+</div>
 
 
 @endsection

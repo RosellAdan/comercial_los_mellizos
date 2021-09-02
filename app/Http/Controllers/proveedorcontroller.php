@@ -20,7 +20,7 @@ class proveedorcontroller extends Controller
     public function store(request $request)
     {
         $proveedor = new proveedor();
-        $proveedor->codip = $request->input('codip');
+       // $proveedor->codip = $request->input('codip');
         $proveedor->ci = $request->input('ci');
         $proveedor->nombre = $request->input('nombre');
         $proveedor->apellido= $request->input('apellido');

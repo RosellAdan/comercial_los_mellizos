@@ -26,7 +26,7 @@ class detallecompracontroller extends Controller
         $detallecompra = new detallecompra();
         $detallecompra->codicom = $codicom;
         $detallecompra->codiprod = $codiprod;
-        $detallecompra->preciocompra = $producto->precio;
+        $detallecompra->preciocompra = $request->input('preciocompra');//$producto->precio;
         $detallecompra->cantidadcompra = $request->input('cantidadcompra');
         $detallecompra->descripcion = $request->input('descripcion');
 
@@ -35,6 +35,12 @@ class detallecompracontroller extends Controller
             $compra = compra::findOrFail($codicom);
             $compra->totalcompra = $compra->totalcompra + ($detallecompra->cantidadcompra*$detallecompra->preciocompra);
             $compra->save();
+        //    $compra->totalcom = $compra->totalcompra + ($detallecompra->cantidadcompra*$detallecompra->preciocompra);
+
+            $producto->cantidadstock = $producto->cantidadstock + $detallecompra->cantidadcompra;//($detallecompra->cantidadcompra*$detallecompra->preciocompra);
+            $producto->save();
+
+
 
             return redirect()->route('compra.show', [$codicom]);
 
@@ -49,7 +55,9 @@ class detallecompracontroller extends Controller
         $compra = compra::findOrFail($detallecompra->codicom);
         $compra->totalcompra = $compra->totalcompra - ($detallecompra->cantidadcompra * $detallecompra->preciocompra);
         $compra->save();
-
+        $producto = producto::findOrFail($detallecompra->codiprod);
+        $producto->cantidadstock = $producto->cantidadstock - $detallecompra->cantidadcompra;//($detallecompra->cantidadcompra*$detallecompra->preciocompra);
+        $producto->save();
         return redirect()->route('compra.show', [$compra->codicom]);
     }
 }

@@ -21,7 +21,7 @@ class tipopersonalcontroller extends Controller
     public function store(request $request)
     {
         $tipopersonal = new tipopersonal();
-        $tipopersonal->idp = $request->input('idp');
+      //  $tipopersonal->idp = $request->input('idp');
         $tipopersonal->descripcion = $request->input('descripcion');
 
         $tipopersonal->save();

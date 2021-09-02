@@ -11,14 +11,14 @@
                 <table class="striped" cellspacing="0" width="100%">
                     <thead>
                     <tr>
-                        <th>codip</th>
-                        <th>ci</th>
-                        <th>nombre</th>
-                        <th>apellido</th>
-                        <th>sexo</th>
-                        <th>direccion</th>
-                        <th>celular</th>
-                        <th>acciones</th>
+                        <th>CODIGO</th>
+                        <th>CARNET</th>
+                        <th>NOMBRE</th>
+                        <th>APELLIDO</th>
+                        <th>SEXO</th>
+                        <th>DIRECCION</th>
+                        <th>CELULAR</th>
+                        <th>ACCIONES</th>
 
                     </tr>
                     </thead>
@@ -27,8 +27,8 @@
                             <tr>
                                 <td>{{ $proveedor->codip }}</td>
                                 <td>{{ $proveedor->ci }}</td>
-                                <td>{{ $proveedor->nombre }}</td>
-                                <td>{{ $proveedor->apellido }}</td>
+                                <td>{{ $proveedor->nombre}}</td>
+                                <td>{{ $proveedor->apellido}}</td>
                                 <td>{{ $proveedor->sexo }}</td>
                                 <td>{{ $proveedor->direccion }}</td>
                                 <td>{{ $proveedor->celular }}</td>

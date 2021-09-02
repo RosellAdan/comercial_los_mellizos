@@ -10,23 +10,23 @@
 
                     <div class="card-content">
                         <span class="card-title primary-text-color primary-text-style">
-                            Formulario de Registro
+                             Registro de Tipo Personal
                             </span>
                         <div class="row">
                             <div class="col s12 divider"></div>
                         </div>
 
                         <div class="row">
-                            <div class="input-field col s12 m4">
+                          {{--  <div class="input-field col s12 m4">
                                 <input id="idp" type="text" class="validate" name="idp" value="{{old('idp')}}">
                                 <label for="idp">ID PERSONAL:</label>
                                 @error('idp')
                                     <span class="help-block red-text"> {{ $message }} </span>
                                 @enderror
-                            </div>
+                            </div>--}}
                             <div class="input-field col s12 m4">
                                 <input id="descripcion" type="text" class="validate" name="descripcion" value="{{old('descripcion')}}">
-                                <label for="descripcion">DESCRIPCION:</label>
+                                <label for="descripcion">TIPO DE  PERSONAL:</label>
                                 @error('descripcion')
                                 <span class="help-block red-text"> {{ $message }} </span>
                                 @enderror

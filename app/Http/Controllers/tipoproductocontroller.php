@@ -24,7 +24,7 @@ class tipoproductocontroller extends Controller
     public function store(request $request)
     {
         $tipoproducto = new tipoproducto();
-        $tipoproducto->coditp = $request->input('coditp');
+       // $tipoproducto->coditp = $request->input('coditp');
         $tipoproducto->descripcion = $request->input('descripcion');
 
         $tipoproducto->save();

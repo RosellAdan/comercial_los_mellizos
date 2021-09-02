@@ -39,7 +39,7 @@ class personalcontroller extends Controller
 
         $personal = personal::findOrFail($idp);
         $tipopersonales= tipopersonal::all();
-
+        //return $personal;
         return view('personal.edit',compact('personal','tipopersonales'));
     }
     public function update(Request $request,$idp)

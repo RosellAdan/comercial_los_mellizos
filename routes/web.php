@@ -162,7 +162,7 @@ Route::group(['prefix'=>'venta'], function (){
 });
 Route::group(['prefix'=>'factura'], function (){
     Route::get('/', [facturacontroller::class,'index'])->name('factura.index');
-    Route::get('/create', [facturacontroller::class,'create'])->name('factura.create');
+    Route::get('/create/{codiv}', [facturacontroller::class,'create'])->name('factura.create');
     Route::post('/', [facturacontroller::class,'store'])->name('factura.store');
     // Route::get('/{numerofactura}', [facturacontroller::class,'show'])->name('factura.show');
     Route::put('/{numerofactura}', [facturacontroller::class,'update'])->name('factura.update');

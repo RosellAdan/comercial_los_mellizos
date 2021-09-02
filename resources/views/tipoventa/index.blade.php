@@ -11,9 +11,9 @@
                 <table class="striped" cellspacing="0" width="100%">
                     <thead>
                     <tr>
-                        <th>coditv</th>
-                        <th>tipopago</th>
-                        <th>acciones</th>
+                        <th>CODIGO</th>
+                        <th>TIO DE PAGO</th>
+                        <th>ACCIONES</th>
 
                     </tr>
                     </thead>

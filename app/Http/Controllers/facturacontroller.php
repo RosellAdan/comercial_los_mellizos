@@ -13,24 +13,26 @@ class facturacontroller extends Controller
     public function index(){
         $facturas = factura::all();
         $facturas->load(['venta']);
-        $facturas->load(['cliente']);
+       // $facturas->load(['cliente']);
         return view('factura.index',compact('facturas'));
     }
-    public function create(){
-        $ventas= venta::all();
-        $clientes= cliente::all();
-        return view('factura.create',compact('ventas','clientes'));
+    public function create($codiv){
+        $venta= venta::findOrFail($codiv);
+       //$clientes= cliente::all();
+        return view('factura.create',compact('venta'));
     }
     public function store(request $request)
     {
         // dd($request);
+       // $codiv = $request->input('venta');
+       // $venta = venta::findOrFail($codiv);
         $factura = new factura();
-        $factura->numerofactura = $request->input('numerofactura');
+       // $factura->numerofactura = $request->input('numerofactura');
         $factura->detalle = $request->input('detalle');
-        $factura->precio = $request->input('precio');
-        $factura->fechafactura = $request->input('fechafactura');
-        $factura->codiv = $request->input('codiv');
-        $factura->cic = $request->input('cic');
+        $factura->precio =$request->input('precio');
+        $factura->fechafactura = now();
+        $factura->codiv =$request->input('codiv');
+       // $factura->cic = $request->input('cic');
         $factura->save();
 
 
@@ -40,18 +42,18 @@ class facturacontroller extends Controller
 
         $factura = factura::findOrFail($idp);
         $ventas = venta::all();
-        $clientes= cliente::all();
-        return view('factura.edit',compact('factura','ventas','clientes'));
+       // $clientes= cliente::all();
+        return view('factura.edit',compact('factura','ventas'));
     }
     public function update(Request $request,$idp)
     {
         $factura = factura::findOrFail($idp);
-        $factura->numerofactura = $request->input('numerofactura');
+       // $factura->numerofactura = $request->input('numerofactura');
         $factura->detalle = $request->input('detalle');
         $factura->precio = $request->input('precio');
         $factura->fechafactura = $request->input('fechafactura');
         $factura->codiv = $request->input('codiv');
-        $factura->cic = $request->input('cic');
+       // $factura->cic = $request->input('cic');
         $factura->save();
 
 

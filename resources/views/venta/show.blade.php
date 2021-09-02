@@ -31,7 +31,7 @@
                             <p class="primary-text-color secondary-text-style">Tipo de venta:</p>
                        </div>
                         <div class="col s8 offset-s2 m7">
-                            <p class="secondary-text-color">{{$venta->tipoventa->descripcion}}</p>
+                            <p class="secondary-text-color">{{$venta->tipoventa->tipopago}}</p>
                         </div>
 
                      {{--   <div class="col s12 m5">

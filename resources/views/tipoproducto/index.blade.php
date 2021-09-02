@@ -11,9 +11,9 @@
                 <table class="striped" cellspacing="0" width="100%">
                     <thead>
                     <tr>
-                        <th>coditp</th>
-                        <th>descripcion</th>
-                        <th>acciones</th>
+                        <th>CODIGO</th>
+                        <th>DESCRIPCION</th>
+                        <th>ACIONES</th>
 
                     </tr>
                     </thead>

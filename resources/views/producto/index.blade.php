@@ -11,10 +11,10 @@
                 <table class="striped" cellspacing="0" width="100%">
                     <thead>
                     <tr>
-                        <th>codiprod</th>
-                        <th>descripcion</th>
-                        <th>cantidadstock </th>
-                        <th>precio  </th>
+                        <th>CODIGO</th>
+                        <th>DESCRIPCION</th>
+                        <th>CANTIDAD</th>
+                        <th>PRECIO</th>
                         <TH>TIPO PRODUCTO </TH>
                         <th>NOMBRE </th>
                         <th>ACCIONES</th>

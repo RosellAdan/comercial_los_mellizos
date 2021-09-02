@@ -11,7 +11,7 @@
 
                     <div class="card-content">
                         <span class="card-title primary-text-color primary-text-style">
-                            Formulario de Edición
+                            FORMULARIO DE EDICION
                             </span>
                         <div class="row">
                             <div class="col s12 divider"></div>

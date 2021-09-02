@@ -17,7 +17,7 @@
                         </div>
 
                         <div class="row">
-                            <div class="input-field col s12 m4">
+                        {{--  <div class="input-field col s12 m4">
                                 <input id="codiv" type="number" class="validate" name="codiv" value="{{old('codiv')}}">
                                 <label for="codiv">CODIGO DE VENTA :</label>
                                 @error('codiv')
@@ -38,7 +38,7 @@
                                 @error('precioventa')
                                 <span class="help-block red-text"> {{ $message }} </span>
                                 @enderror
-                            </div>
+                            </div>--}}
 
                             <div class="input-field col s12 m12">
                                <select name="coditv" id="coditv">
@@ -50,6 +50,20 @@
 
                                <label for="idp">SELECCIONE EL TIPO VENTA:</label>
                                 @error('coditv')
+                                <span class="help-block red-text"> {{ $message }} </span>
+                                @enderror
+                            </div>
+                            <div class="input-field col s12 m12">
+                                <select name="cic" id="cic">
+                                    <option value="">ELIJA UNA OPCION</option>
+                                    @foreach($clientes as $cliente)
+                                        <option value="{{ $cliente->cic }}">{{ $cliente->nombre .' '. $cliente->apellido}}</option>
+                                    @endforeach
+
+                                </select>
+
+                                <label for="idp">SELECCIONE CLIENTE:</label>
+                                @error('cic')
                                 <span class="help-block red-text"> {{ $message }} </span>
                                 @enderror
                             </div>

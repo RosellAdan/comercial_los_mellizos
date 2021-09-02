@@ -11,11 +11,12 @@
                 <table class="striped" cellspacing="0" width="100%">
                     <thead>
                     <tr>
-                        <th>codiv</th>
-                        <th>fechaventa</th>
-                        <th>precioventa</th>
-                        <th>tipopago</th>
-                        <th>Acciones</th>
+                        <th>CODIGO</th>
+                        <th>FECHA</th>
+                        <th>PRECIO</th>
+                        <th>PAGO</th>
+                        <th>NOMBRE DE CLIENTE</th>
+                        <th>ACCIONES</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -25,10 +26,12 @@
                                 <td>{{ $venta->fechaventa }}</td>
                                 <td>{{ $venta->precioventa }}</td>
                                 <td>{{ $venta->tipoventa->tipopago }}</td>
+                                <td>{{ $venta->cliente->nombre.' '.$venta->cliente->apellido }}</td>
                                 <td>
-                                <a href="{{ route('venta.show', [$venta->codiv]) }}"><span class="new badge teal" data-badge-caption="ver"></span></a>
-                                    <a href="{{ route('venta.edit', [$venta->codiv]) }}"><span class="new badge amber accent-4" data-badge-caption="editar"></span></a>
-                                    <a href="{{ route('venta.destroy', [$venta->codiv]) }}"><span class="new badge red" data-badge-caption="eliminar"></span></a>
+                                <a href="{{ route('venta.show', [$venta->codiv]) }}"><span class="new badge teal" data-badge-caption="Detalle"></span></a>
+                                    <a href="{{ route('venta.edit', [$venta->codiv]) }}"><span class="new badge teal" data-badge-caption="Editar"></span></a>
+                                    <a href="{{ route('venta.destroy', [$venta->codiv]) }}"><span class="new badge teal" data-badge-caption="Eliminar"></span></a>
+                                    <a href="{{ route('factura.create', [$venta->codiv]) }}"><span class="new badge teal" data-badge-caption="Emitir Factura"></span></a>
 
                                 </td>
                             </tr>

@@ -11,14 +11,14 @@
                 <table class="striped" cellspacing="0" width="100%">
                     <thead>
                     <tr>
-                        <th>ci</th>
-                        <th>nombre</th>
-                        <th>apellido</th>
-                        <th>direccion</th>
-                        <th>celular</th>
-                        <th>sexo</th>
-                        <th>idp</th>
-                        <th>Acciones</th>
+                        <th>CI</th>
+                        <th>NOMBRE</th>
+                        <th>APELLIDO</th>
+                        <th>DIRECCION</th>
+                        <th>CELULAR</th>
+                        <th>SEXO</th>
+                        <th>TIPO PERSONAL</th>
+                        <th>ACCIONES</th>
                     </tr>
                     </thead>
                     <tbody>

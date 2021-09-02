@@ -17,13 +17,13 @@
                         </div>
 
                         <div class="row">
-                            <div class="input-field col s12 m4">
+                         {{--}}   <div class="input-field col s12 m4">
                                 <input id="coditp" type="number" class="validate" name="coditp" value="{{old('coditp')}}">
                                 <label for="coditp">CODIGO TIPO PRODUCTOL:</label>
                                 @error('coditp')
                                     <span class="help-block red-text"> {{ $message }} </span>
                                 @enderror
-                            </div>
+                            </div>--}}
                             <div class="input-field col s12 m4">
                                 <input id="descripcion" type="text" class="validate" name="descripcion" value="{{old('descripcion')}}">
                                 <label for="descripcion">DESCRIPCION:</label>

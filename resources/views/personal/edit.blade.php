@@ -58,8 +58,8 @@
                             </div>
                             <div class="input-field col s12 m12">
                                 <select name="sexo" id="sexo">
-                                    <option {{$personal->sexo==='M'?'selected':''}} value="M">MASCULINO</option>
-                                    <option {{$personal->sexo==='F'?'selected':''}} value="F">FEMENINO</option>
+                                    <option {{$personal->sexo=='M'?'Selected':''}} value='M'>Masculino</option>
+                                    <option {{$personal->sexo=='F'?'Selected':''}} value='F'>Femenino</option>
                                 </select>
                                 <label for="sexo">SEXO:</label>
 

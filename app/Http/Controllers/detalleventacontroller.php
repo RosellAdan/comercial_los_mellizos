@@ -34,6 +34,9 @@ class detalleventacontroller extends Controller
         $venta->precioventa = $venta->precioventa + ($detalleventa->cantidaventa*$detalleventa->precioventa);
         $venta->save();
 
+        $producto->cantidadstock = $producto->cantidadstock - $detalleventa->cantidaventa;//($detallecompra->cantidadcompra*$detallecompra->preciocompra);
+        $producto->save();
+
         return redirect()->route('venta.show', [$codiv]);
 
 
@@ -46,6 +49,10 @@ class detalleventacontroller extends Controller
         $venta = venta::findOrFail($detalleventa->codiv);
         $venta->precioventa = $venta->precioventa - ($detalleventa->cantidaventa * $detalleventa->precioventa);
         $venta->save();
+
+        $producto = producto::findOrFail($detalleventa->codiprod);
+        $producto->cantidadstock = $producto->cantidadstock + $detalleventa->cantidaventa;//($detallecompra->cantidadcompra*$detallecompra->preciocompra);
+        $producto->save();
 
         return redirect()->route('venta.show', [$venta->codiv]);
     }

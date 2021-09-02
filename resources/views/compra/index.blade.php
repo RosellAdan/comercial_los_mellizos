@@ -11,13 +11,13 @@
                 <table class="striped" cellspacing="0" width="100%">
                     <thead>
                     <tr>
-                        <th>codicom</th>
-                        <th>fechacompra</th>
-                        <th>totalcompra</th>
+                        <th>CODIGO COMPRA</th>
+                        <th>FECHA COMPRA</th>
+                        <th>TOTAL Bs.</th>
                         <th>PROVEEDOR </th>
-                        <th>NOMBRE</th>
                         <TH>ENCARGADO </TH>
-                        <th>DE COMPRA </th>
+                        <th>ACCIONES</th>
+
 
                     </tr>
                     </thead>
@@ -27,10 +27,8 @@
                                 <td>{{$compra->codicom }}</td>
                                 <td>{{$compra->fechacompra }}</td>
                                 <td>{{$compra->totalcompra }}</td>
-                                <td>{{$compra->proveedor->nombre}}</td>
-                                <td>{{$compra->proveedor->apellido}}</td>
-                                <td>{{$compra->personal->nombre}}</td>
-                                <td>{{$compra->personal->apellido}}</td>
+                                <td>{{$compra->proveedor->nombre.''.$compra->proveedor->apellido}}</td>
+                                <td>{{$compra->personal->nombre.''.$compra->personal->apellido}}</td>
                                 <td>
                                    <a href="{{ route('compra.show', [$compra->codicom]) }}"><span class="new badge teal" data-badge-caption="ver"></span></a>
                                     <a href="{{ route('compra.edit', [$compra->codicom]) }}"><span class="new badge amber accent-4" data-badge-caption="editar"></span></a>

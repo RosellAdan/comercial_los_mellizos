@@ -17,7 +17,7 @@
                         </div>
 
                         <div class="row">
-                            <div class="input-field col s12 m4">
+                          {{--  <div class="input-field col s12 m4">
                                 <input id="codicom" type="number" class="validate" name="codicom" value="{{old('codicom')}}">
                                 <label for="codicom">CODIGO DE COMPRA :</label>
                                 @error('codicom')
@@ -38,7 +38,7 @@
                                 @error('totalcompra')
                                 <span class="help-block red-text"> {{ $message }} </span>
                                 @enderror
-                            </div>
+                            </div>--}}
 
 
                             <div class="input-field col s12 m12">
