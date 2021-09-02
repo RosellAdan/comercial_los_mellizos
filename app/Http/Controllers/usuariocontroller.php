@@ -24,7 +24,7 @@ class usuariocontroller extends Controller
     {
         // dd($request);
         $user = new user();
-        $user->id = $request->input('id');
+       // $user->id = $request->input('id');
         $user->name= $request->input('name');
         $user->email= $request->input('email');
         $user->password=  bcrypt($request->input('password'));

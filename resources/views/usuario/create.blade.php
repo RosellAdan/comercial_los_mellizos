@@ -17,13 +17,13 @@
                         </div>
 
                         <div class="row">
-                            <div class="input-field col s12 m4">
-                                <input id="id" type="number" class="validate" name="id" value="{{old('id')}}">
-                                <label for="id">ID DE USUARIO:</label>
-                                @error('id')
-                                    <span class="help-block red-text"> {{ $message }} </span>
-                                @enderror
-                            </div>
+                            {{-- <div class="input-field col s12 m4">
+                                 <input id="id" type="number" class="validate" name="id" value="{{old('id')}}">
+                                 <label for="id">ID DE USUARIO:</label>
+                                 @error('id')
+                                     <span class="help-block red-text"> {{ $message }} </span>
+                                 @enderror
+                             </div>--}}
                             <div class="input-field col s12 m4">
                                 <input id="name" type="text" class="validate" name="name" value="{{old('name')}}">
                                 <label for="name">NOMBRE:</label>
