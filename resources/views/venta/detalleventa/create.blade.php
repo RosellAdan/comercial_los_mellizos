@@ -20,7 +20,7 @@
                                 <select name="producto" id="producto">
                                     <option value="">Elija una opción:</option>
                                     @foreach($productos as $producto)
-                                        <option value="{{ $producto->codiprod }}">{{ $producto->descripcion.' -- '.$producto->precio.' Bs.' }}</option>
+                                        <option value="{{ $producto->codiprod }}">{{ $producto->descripcion.' -- '.$producto->precio.' Bs.'.'--'.$producto->cantidadstock.' u.' }}</option>
                                     @endforeach
                                 </select>
                                 <label for="producto">Seleccione un producto:</label>
