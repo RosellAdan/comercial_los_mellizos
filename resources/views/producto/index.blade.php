@@ -16,7 +16,7 @@
                         <th>CANTIDAD</th>
                         <th>PRECIO</th>
                         <TH>TIPO PRODUCTO </TH>
-                        <th>NOMBRE </th>
+                        <th>REGISTRA </th>
                         <th>ACCIONES</th>
 
 
@@ -38,8 +38,8 @@
 
                                 <td>
                                {{--    <a href="{{ route('personal.show', [$personal->ci]) }}"><span class="new badge teal" data-badge-caption="ver"></span></a>--}}
-                                    <a href="{{ route('producto.edit', [$producto->codiprod]) }}"><span class="new badge amber accent-4" data-badge-caption="editar"></span></a>
-                                    <a href="{{ route('producto.destroy', [$producto->codiprod]) }}"><span class="new badge red" data-badge-caption="eliminar"></span></a>
+                                    <a href="{{ route('producto.edit', [$producto->codiprod]) }}"><span class="new badge  teal" data-badge-caption="Editar"></span></a>
+                                    <a href="{{ route('producto.destroy', [$producto->codiprod]) }}"><span class="new badge teal" data-badge-caption="Eliminar"></span></a>
 
                                 </td>
                             </tr>

@@ -30,9 +30,9 @@
                                 <td>{{$compra->proveedor->nombre.''.$compra->proveedor->apellido}}</td>
                                 <td>{{$compra->personal->nombre.''.$compra->personal->apellido}}</td>
                                 <td>
-                                   <a href="{{ route('compra.show', [$compra->codicom]) }}"><span class="new badge teal" data-badge-caption="ver"></span></a>
-                                    <a href="{{ route('compra.edit', [$compra->codicom]) }}"><span class="new badge amber accent-4" data-badge-caption="editar"></span></a>
-                                    <a href="{{ route('compra.destroy', [$compra->codicom]) }}"><span class="new badge red" data-badge-caption="eliminar"></span></a>
+                                   <a href="{{ route('compra.show', [$compra->codicom]) }}"><span class="new badge teal" data-badge-caption="Detalle"></span></a>
+                                    <a href="{{ route('compra.edit', [$compra->codicom]) }}"><span class="new badge  teal" data-badge-caption="Editar"></span></a>
+                                    <a href="{{ route('compra.destroy', [$compra->codicom]) }}"><span class="new badge teal" data-badge-caption="Eliminar"></span></a>
 
                                 </td>
                             </tr>

@@ -33,8 +33,8 @@
                                 <td>{{ $personal->tipopersonal->descripcion }}</td>
                                 <td>
                                {{--    <a href="{{ route('personal.show', [$personal->ci]) }}"><span class="new badge teal" data-badge-caption="ver"></span></a>--}}
-                                    <a href="{{ route('personal.edit', [$personal->ci]) }}"><span class="new badge amber accent-4" data-badge-caption="editar"></span></a>
-                                    <a href="{{ route('personal.destroy', [$personal->ci]) }}"><span class="new badge red" data-badge-caption="eliminar"></span></a>
+                                    <a href="{{ route('personal.edit', [$personal->ci]) }}"><span class="new badge teal" data-badge-caption="Editar"></span></a>
+                                    <a href="{{ route('personal.destroy', [$personal->ci]) }}"><span class="new badge teal" data-badge-caption="Eliminar"></span></a>
 
                                 </td>
                             </tr>

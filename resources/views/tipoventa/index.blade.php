@@ -25,8 +25,8 @@
 
                                 <td>
                   {{--                  <a href="{{ route('tipopersonal.show', [$tipopersonal->idp]) }}"><span class="new badge teal" data-badge-caption="ver"></span></a>--}}
-                                    <a href="{{ route('tipoventa.edit', [$tipoventa->coditv]) }}"><span class="new badge amber accent-4" data-badge-caption="editar"></span></a>
-                                    <a href="{{ route('tipoventa.destroy', [$tipoventa->coditv]) }}"><span class="new badge red" data-badge-caption="eliminar"></span></a>
+                                    <a href="{{ route('tipoventa.edit', [$tipoventa->coditv]) }}"><span class="new badge tael" data-badge-caption="Editar"></span></a>
+                                    <a href="{{ route('tipoventa.destroy', [$tipoventa->coditv]) }}"><span class="new badge tael" data-badge-caption="Eliminar"></span></a>
 
                                 </td>
                             </tr>

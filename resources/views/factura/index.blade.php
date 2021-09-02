@@ -32,8 +32,8 @@
 
                                 <td>
                                {{--    <a href="{{ route('.show', [$personal->ci]) }}"><span class="new badge teal" data-badge-caption="ver"></span></a>s--}}
-                                    <a href="{{ route('factura.edit', [$factura->numerofactura]) }}"><span class="new badge amber accent-4" data-badge-caption="editar"></span></a>
-                                    <a href="{{ route('factura.destroy', [$factura->numerofactura]) }}"><span class="new badge red" data-badge-caption="eliminar"></span></a>
+                                    <a href="{{ route('factura.edit', [$factura->numerofactura]) }}"><span class="new badge tael" data-badge-caption="Editar"></span></a>
+                                    <a href="{{ route('factura.destroy', [$factura->numerofactura]) }}"><span class="new badge tael" data-badge-caption="Eliminar"></span></a>
 
                                 </td>
                             </tr>
