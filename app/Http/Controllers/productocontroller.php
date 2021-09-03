@@ -16,6 +16,7 @@ class productocontroller extends Controller
         $productos = producto::all();
         $productos->load(['personal']);
         $productos->load(['tipoproducto']);
+        $productos = producto::orderBy('codiprod', 'asc')->get();
         return view('producto.index',compact('productos'));
     }
     public function create(){

@@ -14,6 +14,7 @@ class ventacontroller extends Controller
         $ventas = venta::all();
         $ventas->load(['tipoventa']);
         $ventas->load(['cliente']);
+        $ventas = venta::orderBy('codiv', 'asc')->get();
 
         return view('venta.index',compact('ventas'));
     }

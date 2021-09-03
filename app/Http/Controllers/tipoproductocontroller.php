@@ -12,7 +12,7 @@ class tipoproductocontroller extends Controller
     public function index(){
 
         $tipoproductos = tipoproducto::all(); //mostrar tabla (from)
-
+        $tipoproductos = tipoproducto::orderBy('coditp', 'asc')->get();
         return view('tipoproducto.index',compact('tipoproductos'));
     }
 

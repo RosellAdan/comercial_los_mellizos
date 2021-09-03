@@ -11,6 +11,7 @@ class tipopersonalcontroller extends Controller
    public function index(){
 
        $tipopersonas = tipopersonal::all(); //mostrar tabla (from)
+       $tipopersonas = tipopersonal::orderBy('idp', 'asc')->get();
 
        return view('tipopersonal.index',compact('tipopersonas'));
    }
@@ -22,6 +23,7 @@ class tipopersonalcontroller extends Controller
     {
         $tipopersonal = new tipopersonal();
       //  $tipopersonal->idp = $request->input('idp');
+
         $tipopersonal->descripcion = $request->input('descripcion');
 
         $tipopersonal->save();

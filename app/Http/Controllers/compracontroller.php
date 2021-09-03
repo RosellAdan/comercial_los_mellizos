@@ -14,6 +14,7 @@ class compracontroller extends Controller
         $compras = compra::all();
         $compras->load(['proveedor']);
         $compras->load(['personal']);
+        $compras = compra::orderBy('codicom', 'asc')->get();
         return view('compra.index',compact('compras'));
     }
     public function create(){

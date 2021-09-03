@@ -13,6 +13,7 @@ class usuariocontroller extends Controller
     public function index(){
         $users = user::all();
         $users->load(['personal']);
+        $users = user::orderBy('id', 'asc')->get();
 
         return view('usuario.index',compact('users'));
     }

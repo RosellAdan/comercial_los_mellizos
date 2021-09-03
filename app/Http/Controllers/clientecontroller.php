@@ -11,7 +11,7 @@ class clientecontroller extends Controller
     public function index(){
 
         $clientes = cliente::all(); //mostrar tabla (from)
-
+       // $cliente = cliente::orderBy('id', 'desc')->get();
         return view('cliente.index',compact('clientes'));
     }
     public function create(){

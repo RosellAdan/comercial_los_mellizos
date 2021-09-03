@@ -10,6 +10,7 @@ class proveedorcontroller extends Controller
     public function index(){
 
         $proveedores = proveedor::all(); //mostrar tabla (from)
+        $proveedores = proveedor::orderBy('codip', 'asc')->get();
 
         return view('proveedor.index',compact('proveedores'));
     }

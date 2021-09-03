@@ -13,6 +13,7 @@ class tipoventacontroller extends Controller
     public function index(){
 
         $tipoventas = tipoventa::all(); //mostrar tabla (from)
+        $tipoventas = tipoventa::orderBy('coditv', 'asc')->get();
 
         return view('tipoventa.index',compact('tipoventas'));
 }
