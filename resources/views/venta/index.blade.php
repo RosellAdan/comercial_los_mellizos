@@ -32,6 +32,7 @@
                                     <a href="{{ route('venta.edit', [$venta->codiv]) }}"><span class="new badge teal" data-badge-caption="Editar"></span></a>
                                     <a href="{{ route('venta.destroy', [$venta->codiv]) }}"><span class="new badge teal" data-badge-caption="Eliminar"></span></a>
                                     <a href="{{ route('factura.create', [$venta->codiv]) }}"><span class="new badge teal" data-badge-caption="Emitir Factura"></span></a>
+                                    <a href="{{ route('factura.edit', [$venta->codiv]) }}"><span class="new badge teal" data-badge-caption="Ver Factura"></span></a>
 
                                 </td>
                             </tr>

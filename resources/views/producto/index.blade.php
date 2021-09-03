@@ -48,6 +48,20 @@
                 </table>
             </div>
         </div>
+   {{-- <div class="input-field col s12 m6">
+        <select name="producto" id="producto">
+            <option value="">Elija una opción:</option>
+            @foreach($productos as $producto)
+                <option value="{{ $producto->codiprod }}">{{ $producto->descripcion}}</option>
+            @endforeach
+        </select>
+        <label for="producto">Seleccione un producto:</label>
+        @error('producto')
+        <span class="help-block red-text"> {{ $message }} </span>
+        @enderror
+        <a href="{{ route('producto.edit', [$producto->codiprod]) }}"><span class="new badge  teal" data-badge-caption="Buscar"></span></a>
+
+    </div>--}}
     </div>
 
 @endsection

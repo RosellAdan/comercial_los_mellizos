@@ -27,8 +27,8 @@
                                 <td>{{$compra->codicom }}</td>
                                 <td>{{$compra->fechacompra }}</td>
                                 <td>{{$compra->totalcompra }}</td>
-                                <td>{{$compra->proveedor->nombre.''.$compra->proveedor->apellido}}</td>
-                                <td>{{$compra->personal->nombre.''.$compra->personal->apellido}}</td>
+                                <td>{{$compra->proveedor->nombre.' '.$compra->proveedor->apellido}}</td>
+                                <td>{{$compra->personal->nombre.' '.$compra->personal->apellido}}</td>
                                 <td>
                                    <a href="{{ route('compra.show', [$compra->codicom]) }}"><span class="new badge teal" data-badge-caption="Detalle"></span></a>
                                     <a href="{{ route('compra.edit', [$compra->codicom]) }}"><span class="new badge  teal" data-badge-caption="Editar"></span></a>
