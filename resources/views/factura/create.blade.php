@@ -33,7 +33,7 @@
                             </div>
 
                             <div class="input-field col s12 m4">
-                                <input id="precio" type="number" class="validate" name="precio" value="{{old('precio')}}">
+                                <input id="precio" type="number" class="validate" name="precio" value="{{$venta->precioventa}}"readonly>
                                 <label for="precio">PRECIO:</label>
                                 @error('precio')
                                 <span class="help-block red-text"> {{ $message }} </span>
@@ -63,7 +63,7 @@
                               </div>--}}
                             <div class="input-field col s12 m4">
                                 <input id="precio" type="number" class="validate" name="codiv" value="{{$venta->codiv}}" readonly>
-                                <label for="precio">PRECIO:</label>
+                                <label for="precio">CODIGO VENTA:</label>
                                 @error('precio')
                                 <span class="help-block red-text"> {{ $message }} </span>
                                 @enderror
