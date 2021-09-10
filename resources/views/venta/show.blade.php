@@ -40,7 +40,14 @@
                         <div class="col s8 offset-s2 m7">
                             <p class="secondary-text-color">{{ $venta->producto->descripcion}}</p>
                         </div> --}}
+                        <div class="col s12 m5">
+                            <p class="primary-text-color secondary-text-style">Cliente:</p>
+                        </div>
+                        <div class="col s8 offset-s2 m7">
+                            <p class="secondary-text-color">{{ $venta->cliente->nombre.' '.$venta->cliente->apellido }}</p>
+                        </div>
                     </div>
+
                     <div class="card-action right-align">
                         <a href="{{ route('venta.index') }}" class="waves-effect waves-brown btn-flat red-text bold">Atras</a>
                     </div>
